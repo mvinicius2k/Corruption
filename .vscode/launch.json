@@ -1,0 +1,167 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "coreclr",
+			"name": "Game (C# attach Editor)",
+			"request": "attach",
+			"processName": "FlaxEditor"
+		},
+		{
+			"type": "coreclr",
+			"name": "Game|Editor.Windows.Debug|x64 (C#)",
+			"request": "launch",
+			"preLaunchTask": "Corruption|Editor.Windows.Debug|x64",
+			"cwd": "D:\\Code\\Corruption",
+			"program": "C:\\Program Files (x86)\\Flax\\Flax_1.6\\Binaries\\Editor\\Win64\\Debug\\FlaxEditor",
+			"args": [
+				"-project",
+				"D:\\Code\\Corruption",
+				"-skipCompile"
+			],
+			"stopAtEntry": false,
+			"externalConsole": true
+		},
+		{
+			"type": "coreclr",
+			"name": "Game|Editor.Windows.Development|x64 (C#)",
+			"request": "launch",
+			"preLaunchTask": "Corruption|Editor.Windows.Development|x64",
+			"cwd": "D:\\Code\\Corruption",
+			"program": "C:\\Program Files (x86)\\Flax\\Flax_1.6\\Binaries\\Editor\\Win64\\Development\\FlaxEditor",
+			"args": [
+				"-project",
+				"D:\\Code\\Corruption",
+				"-skipCompile"
+			],
+			"stopAtEntry": false,
+			"externalConsole": true
+		},
+		{
+			"type": "coreclr",
+			"name": "Game|Editor.Windows.Release|x64 (C#)",
+			"request": "launch",
+			"preLaunchTask": "Corruption|Editor.Windows.Release|x64",
+			"cwd": "D:\\Code\\Corruption",
+			"program": "C:\\Program Files (x86)\\Flax\\Flax_1.6\\Binaries\\Editor\\Win64\\Release\\FlaxEditor",
+			"args": [
+				"-project",
+				"D:\\Code\\Corruption",
+				"-skipCompile"
+			],
+			"stopAtEntry": false,
+			"externalConsole": true
+		},
+		{
+			"type": "coreclr",
+			"name": "Game|Game.Windows.Debug|x64 (C#)",
+			"request": "launch",
+			"preLaunchTask": "Corruption|Game.Windows.Debug|x64",
+			"cwd": "D:\\Code\\Corruption",
+			"program": "C:\\Program Files (x86)\\Flax\\Flax_1.6\\Binaries\\Editor\\Win64\\Debug\\FlaxEditor",
+			"args": [
+				"-project",
+				"D:\\Code\\Corruption",
+				"-skipCompile"
+			],
+			"stopAtEntry": false,
+			"externalConsole": true
+		},
+		{
+			"type": "coreclr",
+			"name": "Game|Game.Windows.Debug|Win32 (C#)",
+			"request": "launch",
+			"preLaunchTask": "Corruption|Game.Windows.Debug|Win32",
+			"cwd": "D:\\Code\\Corruption",
+			"program": "C:\\Program Files (x86)\\Flax\\Flax_1.6\\Binaries\\Editor\\Win32\\Debug\\FlaxEditor",
+			"args": [
+				"-project",
+				"D:\\Code\\Corruption",
+				"-skipCompile"
+			],
+			"stopAtEntry": false,
+			"externalConsole": true
+		},
+		{
+			"type": "coreclr",
+			"name": "Game|Game.Windows.Development|x64 (C#)",
+			"request": "launch",
+			"preLaunchTask": "Corruption|Game.Windows.Development|x64",
+			"cwd": "D:\\Code\\Corruption",
+			"program": "C:\\Program Files (x86)\\Flax\\Flax_1.6\\Binaries\\Editor\\Win64\\Development\\FlaxEditor",
+			"args": [
+				"-project",
+				"D:\\Code\\Corruption",
+				"-skipCompile"
+			],
+			"stopAtEntry": false,
+			"externalConsole": true
+		},
+		{
+			"type": "coreclr",
+			"name": "Game|Game.Windows.Development|Win32 (C#)",
+			"request": "launch",
+			"preLaunchTask": "Corruption|Game.Windows.Development|Win32",
+			"cwd": "D:\\Code\\Corruption",
+			"program": "C:\\Program Files (x86)\\Flax\\Flax_1.6\\Binaries\\Editor\\Win32\\Development\\FlaxEditor",
+			"args": [
+				"-project",
+				"D:\\Code\\Corruption",
+				"-skipCompile"
+			],
+			"stopAtEntry": false,
+			"externalConsole": true
+		},
+		{
+			"type": "coreclr",
+			"name": "Game|Game.Windows.Release|x64 (C#)",
+			"request": "launch",
+			"preLaunchTask": "Corruption|Game.Windows.Release|x64",
+			"cwd": "D:\\Code\\Corruption",
+			"program": "C:\\Program Files (x86)\\Flax\\Flax_1.6\\Binaries\\Editor\\Win64\\Release\\FlaxEditor",
+			"args": [
+				"-project",
+				"D:\\Code\\Corruption",
+				"-skipCompile"
+			],
+			"stopAtEntry": false,
+			"externalConsole": true
+		},
+		{
+			"type": "coreclr",
+			"name": "Game|Game.Windows.Release|Win32 (C#)",
+			"request": "launch",
+			"preLaunchTask": "Corruption|Game.Windows.Release|Win32",
+			"cwd": "D:\\Code\\Corruption",
+			"program": "C:\\Program Files (x86)\\Flax\\Flax_1.6\\Binaries\\Editor\\Win32\\Release\\FlaxEditor",
+			"args": [
+				"-project",
+				"D:\\Code\\Corruption",
+				"-skipCompile"
+			],
+			"stopAtEntry": false,
+			"externalConsole": true
+		},
+		{
+			"type": "coreclr",
+			"name": "BuildScripts (C# attach Editor)",
+			"request": "attach",
+			"processName": "FlaxEditor"
+		},
+		{
+			"type": "coreclr",
+			"name": "BuildScripts|Debug|AnyCPU (C#)",
+			"request": "launch",
+			"preLaunchTask": "Corruption|Debug|AnyCPU",
+			"cwd": "D:\\Code\\Corruption",
+			"program": "C:\\Program Files (x86)\\Flax\\Flax_1.6\\Binaries\\Editor\\Win32\\Debug\\FlaxEditor",
+			"args": [
+				"-project",
+				"D:\\Code\\Corruption",
+				"-skipCompile"
+			],
+			"stopAtEntry": false,
+			"externalConsole": true
+		}
+	]
+}
