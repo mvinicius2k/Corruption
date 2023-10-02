@@ -105,15 +105,15 @@
 			"Name": "Camera",
 			"Transform": {
 				"Translation": {
-					"X": -198.75326538085938,
-					"Y": 196.89071655273438,
-					"Z": 190.70037841796876
+					"X": 483.96148681640627,
+					"Y": 746.9954223632813,
+					"Z": -1180.2716064453126
 				},
 				"Orientation": {
-					"X": 0.06189095228910446,
-					"Y": 0.9198267459869385,
-					"Z": -0.1617070734500885,
-					"W": 0.35204988718032839
+					"X": 0.32456451654434206,
+					"Y": -0.07418454438447952,
+					"Z": 0.025543788447976114,
+					"W": 0.9426038265228272
 				}
 			},
 			"StaticFlags": 0,
@@ -196,9 +196,9 @@
 			"TypeName": "Game.RelativeFront",
 			"ParentID": "c32a84074f2926075db86e895491df60",
 			"V": {
-	"TargetActor": "b0d72c3746caebca055e1f921ca21c7c",
-	"ActorToRotate": "c32a84074f2926075db86e895491df60"
-}
+	"TargetActor": "b0d72c3746caebca055e1f921ca21c7c"
+},
+			"Enabled": false
 		},
 		{
 			"ID": "f05185004d85b1695fc5b1ae710ba373",
@@ -248,6 +248,41 @@
 			"ViewDistance": 490.0,
 			"VolumetricScatteringIntensity": 0.7100000381469727,
 			"SourceRadius": 7.359999656677246
+		},
+		{
+			"ID": "b1e751aa4bd04fd2f4cf0c8fb1094d7f",
+			"TypeName": "FlaxEngine.StaticModel",
+			"ParentID": "74a68a984824b4510d12589f199ad68f",
+			"Name": "Floor 0",
+			"Transform": {
+				"Translation": {
+					"X": 1000.0,
+					"Y": 0.0,
+					"Z": 0.0
+				},
+				"Scale": {
+					"X": 10.0,
+					"Y": 0.5,
+					"Z": 1.619999885559082
+				}
+			},
+			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "382f1ae946c519eff6e6f3a2965cf56b",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		},
+		{
+			"ID": "ea8d259f45e360f3ab824e9996e7341c",
+			"TypeName": "FlaxEngine.BoxCollider",
+			"ParentID": "b1e751aa4bd04fd2f4cf0c8fb1094d7f",
+			"Name": "BoxCollider"
 		}
 	]
 }
