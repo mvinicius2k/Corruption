@@ -3,7 +3,7 @@
 	"TypeName": "EntityMovementData",
 	"EngineBuild": 6344,
 	"Data": {
-	"Speed": 2000.0,
+	"Speed": 10000.0,
 	"JumpForce": 10.0
 }
 }

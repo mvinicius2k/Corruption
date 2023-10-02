@@ -7,7 +7,7 @@ namespace Game
     /// <summary>
     /// EntityMovement Script.
     /// </summary>
-    public class EntityMovement : Script
+    public class EntityMovement : Script, IMoveUpdater
     {
         [Tooltip($"Do tipo {nameof(EntityMovementData)}")]
         public JsonAsset DataProps;
@@ -21,6 +21,9 @@ namespace Game
 
         private float jumpAirDurationCount = 0f;
         private bool Jumping;
+        Transform transform;
+        
+        public event EventHandler OnMoveUpdate;
 
         public void Jump()
         {
@@ -58,30 +61,49 @@ namespace Game
         /// <inheritdoc/>
         public override void OnUpdate()
         {
+
             if (Direction != Vector2.Zero)
             {
-
-                if (AnchorTarget.HasTag(Values.TagCamera))
-                {
-                    var pos = Actor.Position - AnchorTarget.Position;
-                    var angle = Mathf.Atan2(pos.X, pos.Z) * Mathf.RadiansToDegrees;
-                    Actor.EulerAngles = angle * Vector3.Up;
-                }
+                OnMoveUpdate.Invoke(this, EventArgs.Empty);
             }
-
-            
+            //if (Direction != Vector2.Zero)
+            //{
+            //    //var camMultiplicator = AnchorTarget.HasTag(Values.TagCamera) ? -1f : 1f; //Se for camera, a âncora se inverte
+            //    //var pos = Actor.Position - AnchorTarget.Position;
+            //    //var angle = Mathf.Atan2(pos.X, pos.Z) * Mathf.RadiansToDegrees;
+            //    //Actor.EulerAngles = angle * Vector3.Up;
+            //}
             var speedDelta = Props.Speed * Time.DeltaTime;
-            var normalized = Actor.Transform.Right;
 
+
+            var targetTRS = Actor.WorldToLocalMatrix;
+            var euler = new Vector3
+            {
+                X = Mathf.Atan2(Direction.X, 1f),
+                Y = 0f,
+                Z = Mathf.Atan2(Direction.Y, 1f),
+            } * Mathf.RadiansToDegrees;
+
+            var matrix = Matrix.Transformation(Float3.One, Quaternion.Euler(euler), Float3.Zero);
+            var targetMatrix = Matrix.Multiply(targetTRS, matrix);
+
+            targetMatrix.Decompose(out transform);
+            var outDirection = transform.Orientation.EulerAngles.Normalized;
             RigidBody.LinearVelocity = new Vector3
             {
-                X = Direction.X * Mathf.Cos(Actor.EulerAngles.Y * Mathf.DegreesToRadians) * speedDelta,
+                X = outDirection.X * speedDelta,
                 Y = RigidBody.LinearVelocity.Y,
-                Z = Direction.Y * Mathf.Sin(Actor.EulerAngles.Y * Mathf.DegreesToRadians) * speedDelta
+                Z = outDirection.Z * speedDelta
             };
+
 
             if (Direction == Vector2.Zero)
                 RigidBody.LinearVelocity = new Vector3 { Y = RigidBody.LinearVelocity.Y, };
+        }
+
+        public override void OnDebugDraw()
+        {
+            //DebugDraw.DrawWireCone(Actor.Position, Quaternion.Identity, 1f, transform., 0f, Color.Blue)
         }
     }
 }

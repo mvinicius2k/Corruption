@@ -171,8 +171,7 @@
 			"Mass": 1000.0000610351563,
 			"LinearDamping": 0.0,
 			"AngularDamping": 0.0,
-			"MaxAngularVelocity": 0.0,
-			"Constraints": 56
+			"MaxAngularVelocity": 0.0
 		},
 		{
 			"ID": "01daeee34f1314ba3c27c9a19533bdf2",
@@ -190,6 +189,15 @@
 			"ParentID": "c32a84074f2926075db86e895491df60",
 			"V": {
 	"EntityMovement": "01daeee34f1314ba3c27c9a19533bdf2"
+}
+		},
+		{
+			"ID": "fc6aed344e80d8e8c47c4f99005f4197",
+			"TypeName": "Game.RelativeFront",
+			"ParentID": "c32a84074f2926075db86e895491df60",
+			"V": {
+	"TargetActor": "b0d72c3746caebca055e1f921ca21c7c",
+	"ActorToRotate": "c32a84074f2926075db86e895491df60"
 }
 		},
 		{
@@ -217,6 +225,29 @@
 					}
 				]
 			}
+		},
+		{
+			"ID": "934f49c44521d99212f39ab2c99842b5",
+			"TypeName": "FlaxEngine.SpotLight",
+			"ParentID": "c32a84074f2926075db86e895491df60",
+			"Name": "SpotLight",
+			"Transform": {
+				"Translation": {
+					"X": 0.0,
+					"Y": -28.045005798339845,
+					"Z": 51.613800048828128
+				}
+			},
+			"Color": {
+				"R": 0.0,
+				"G": 1.0,
+				"B": 0.06439495086669922,
+				"A": 1.0
+			},
+			"Brightness": 107.24000549316406,
+			"ViewDistance": 490.0,
+			"VolumetricScatteringIntensity": 0.7100000381469727,
+			"SourceRadius": 7.359999656677246
 		}
 	]
 }
