@@ -105,15 +105,15 @@
 			"Name": "Camera",
 			"Transform": {
 				"Translation": {
-					"X": 483.96148681640627,
-					"Y": 746.9954223632813,
-					"Z": -1180.2716064453126
+					"X": -317.4415283203125,
+					"Y": 513.5355834960938,
+					"Z": -656.2199096679688
 				},
 				"Orientation": {
-					"X": 0.32456451654434206,
-					"Y": -0.07418454438447952,
-					"Z": 0.025543788447976114,
-					"W": 0.9426038265228272
+					"X": 0.30783069133758547,
+					"Y": 0.30783072113990786,
+					"Z": -0.10599460452795029,
+					"W": 0.8940054178237915
 				}
 			},
 			"StaticFlags": 0,
@@ -168,7 +168,8 @@
 					"Z": -84.26880645751953
 				}
 			},
-			"Mass": 1000.0000610351563,
+			"OverrideMass": true,
+			"Mass": 100.0,
 			"LinearDamping": 0.0,
 			"AngularDamping": 0.0,
 			"MaxAngularVelocity": 0.0
@@ -180,6 +181,8 @@
 			"V": {
 	"DataProps": "acd45c4d4fd82a90011ef2a44b269789",
 	"RigidBody": "c32a84074f2926075db86e895491df60",
+	"JumpAirForceMultiplicator": 0.8,
+	"JumpAirDuration": 0.25,
 	"AnchorTarget": "b0d72c3746caebca055e1f921ca21c7c"
 }
 		},
@@ -197,8 +200,7 @@
 			"ParentID": "c32a84074f2926075db86e895491df60",
 			"V": {
 	"TargetActor": "b0d72c3746caebca055e1f921ca21c7c"
-},
-			"Enabled": false
+}
 		},
 		{
 			"ID": "f05185004d85b1695fc5b1ae710ba373",
@@ -257,7 +259,7 @@
 			"Transform": {
 				"Translation": {
 					"X": 1000.0,
-					"Y": 0.0,
+					"Y": 111.15083312988281,
 					"Z": 0.0
 				},
 				"Scale": {

@@ -4,6 +4,6 @@
 	"EngineBuild": 6344,
 	"Data": {
 	"Speed": 10000.0,
-	"JumpForce": 10.0
+	"JumpForce": 60000.0
 }
 }
