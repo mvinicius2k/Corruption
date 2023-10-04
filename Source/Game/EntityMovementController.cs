@@ -33,11 +33,13 @@ namespace Game
         /// <inheritdoc/>
         public override void OnUpdate()
         {
-            EntityMovement.Direction = new Vector2
-            {
-                X = Input.GetAxisRaw(Values.InputHorizontalAxis),
-                Y = Input.GetAxisRaw(Values.InputVerticalAxis),
-            };
+
+            //Direção de acordo com um objeto
+            var right = Camera.MainCamera.Transform.Right;
+            var fowared = Vector3.ProjectOnPlane(Camera.MainCamera.Transform.Forward, Vector3.Up).Normalized;
+            var xInput = Input.GetAxisRaw(Values.InputHorizontalAxis);
+            var yInput = Input.GetAxisRaw(Values.InputVerticalAxis);
+            EntityMovement.MoveVector = fowared * yInput + right * xInput;
 
             if (Input.GetActionState(Values.InputJump) == InputActionState.Press)
             {

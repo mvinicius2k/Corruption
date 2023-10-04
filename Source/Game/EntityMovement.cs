@@ -13,7 +13,11 @@ namespace Game
         public JsonAsset DataProps;
         private EntityMovementData props;
         public EntityMovementData Props => props;
-        public Vector2 Direction;
+
+        public float TargetFront => Mathf.Atan2(MoveVector.X, MoveVector.Z) * Mathf.RadiansToDegrees;
+        public bool PauseFront => MoveVector.IsZero;
+
+        //public Vector2 Direction;
         public RigidBody RigidBody;
         public float JumpAirForceMultiplicator = 0.25f;
         public float JumpAirDuration = 1f;
@@ -21,9 +25,8 @@ namespace Game
 
         private float jumpAirDurationCount = 0f;
         private bool Jumping;
+        public Vector3 MoveVector;
         Transform transform;
-        
-        public event EventHandler OnMoveUpdate;
 
         public void Jump()
         {
@@ -57,66 +60,23 @@ namespace Game
         {
             // Here you can add code that needs to be called when script is disabled (eg. unregister from events)
         }
-
         /// <inheritdoc/>
         public override void OnUpdate()
         {
 
-            if (Direction != Vector2.Zero)
-            {
-                OnMoveUpdate?.Invoke(this, EventArgs.Empty);
-            }
-            //if (Direction != Vector2.Zero)
-            //{
-            //    //var camMultiplicator = AnchorTarget.HasTag(Values.TagCamera) ? -1f : 1f; //Se for camera, a âncora se inverte
-            //    //var pos = Actor.Position - AnchorTarget.Position;
-            //    //var angle = Mathf.Atan2(pos.X, pos.Z) * Mathf.RadiansToDegrees;
-            //    //Actor.EulerAngles = angle * Vector3.Up;
-            //}
             var speedDelta = Props.Speed * Time.DeltaTime;
 
-            var right = Camera.MainCamera.Transform.Right;
-            var fowared = Vector3.ProjectOnPlane(Camera.MainCamera.Transform.Forward, Vector3.Up).Normalized;
-            var moveVector = fowared * Direction.Y + right * Direction.X;
             RigidBody.LinearVelocity = new Vector3
             {
-                X = moveVector.X * speedDelta,
+                X = MoveVector.X * speedDelta,
                 Y = RigidBody.LinearVelocity.Y,
-                Z = moveVector.Z * speedDelta
+                Z = MoveVector.Z * speedDelta
             };
 
 
-            //var targetTransform = AnchorTarget.Transform;
-            
-            //var targetTRS = .WorldToLocalMatrix;
-            
-            //var euler = new Vector3
-            //{
-            //    X = Mathf.Atan2(Direction.X, 1f),
-            //    Y = 0f,
-            //    Z = Mathf.Atan2(Direction.Y, 1f),
-            //} * Mathf.RadiansToDegrees;
-
-            //var matrix = Matrix.Transformation(Float3.One, Quaternion.Euler(euler), Float3.Zero);
-            //var targetMatrix = Matrix.Multiply(targetTRS, matrix);
-
-            //targetMatrix.Decompose(out transform);
-            //var outDirection = transform.Orientation.EulerAngles.Normalized;
-            //RigidBody.LinearVelocity = new Vector3
-            //{
-            //    X = outDirection.X * speedDelta,
-            //    Y = RigidBody.LinearVelocity.Y,
-            //    Z = outDirection.Z * speedDelta
-            //};
-
-
-            if (Direction == Vector2.Zero)
+            if (MoveVector.IsZero)
                 RigidBody.LinearVelocity = new Vector3 { Y = RigidBody.LinearVelocity.Y, };
         }
 
-        public override void OnDebugDraw()
-        {
-            //DebugDraw.DrawWireCone(Actor.Position, Quaternion.Identity, 1f, transform., 0f, Color.Blue)
-        }
     }
 }
