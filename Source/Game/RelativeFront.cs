@@ -27,7 +27,7 @@ public class RelativeFront : Script
             return;
         float min = moveUpdater.TargetFront - RangeAcceptable;
         float max = moveUpdater.TargetFront + RangeAcceptable;
-        Debug.Log(moveUpdater.TargetFront);
+        
         if (Mathf.IsInRange(Actor.EulerAngles.Y, min, max))
             return;
         var yEuler = Mathf.LerpAngle(Actor.EulerAngles.Y, moveUpdater.TargetFront, PassLenght * Time.DeltaTime);

@@ -99,43 +99,15 @@
 			"Mode": 0
 		},
 		{
-			"ID": "b0d72c3746caebca055e1f921ca21c7c",
-			"TypeName": "FlaxEngine.Camera",
-			"ParentID": "74a68a984824b4510d12589f199ad68f",
-			"Name": "Camera",
-			"Transform": {
-				"Translation": {
-					"X": -317.4415283203125,
-					"Y": 513.5355834960938,
-					"Z": -656.2199096679688
-				},
-				"Orientation": {
-					"X": 0.30783069133758547,
-					"Y": 0.30783072113990786,
-					"Z": -0.10599460452795029,
-					"W": 0.8940054178237915
-				}
-			},
-			"StaticFlags": 0,
-			"Tag": "Camera"
-		},
-		{
-			"ID": "9053ad38428b10594c741db78d7fcca5",
-			"TypeName": "FreeCamera",
-			"ParentID": "b0d72c3746caebca055e1f921ca21c7c",
-			"V": {},
-			"Enabled": false
-		},
-		{
 			"ID": "4a9d87134ab42f4294db6bbcf1902bde",
 			"TypeName": "FlaxEngine.StaticModel",
 			"ParentID": "74a68a984824b4510d12589f199ad68f",
 			"Name": "Floor",
 			"Transform": {
 				"Scale": {
-					"X": 10.0,
+					"X": 44.02000045776367,
 					"Y": 0.5,
-					"Z": 10.0
+					"Z": 11.010000228881836
 				}
 			},
 			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
@@ -160,7 +132,7 @@
 			"ID": "c32a84074f2926075db86e895491df60",
 			"TypeName": "FlaxEngine.RigidBody",
 			"ParentID": "74a68a984824b4510d12589f199ad68f",
-			"Name": "Cube",
+			"Name": "Player",
 			"Transform": {
 				"Translation": {
 					"X": 6.8406219482421879,
@@ -259,7 +231,7 @@
 			"Transform": {
 				"Translation": {
 					"X": 1000.0,
-					"Y": 111.15083312988281,
+					"Y": 1.1508331298828126,
 					"Z": 0.0
 				},
 				"Scale": {
@@ -285,6 +257,420 @@
 			"TypeName": "FlaxEngine.BoxCollider",
 			"ParentID": "b1e751aa4bd04fd2f4cf0c8fb1094d7f",
 			"Name": "BoxCollider"
+		},
+		{
+			"ID": "ef150b614eab4644dd88fe9fa27ce6e5",
+			"TypeName": "FlaxEngine.StaticModel",
+			"ParentID": "74a68a984824b4510d12589f199ad68f",
+			"Name": "Floor 1",
+			"Transform": {
+				"Translation": {
+					"X": 1000.0,
+					"Y": 1.1508331298828126,
+					"Z": -370.0
+				},
+				"Scale": {
+					"X": 10.0,
+					"Y": 0.5,
+					"Z": 1.619999885559082
+				}
+			},
+			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "382f1ae946c519eff6e6f3a2965cf56b",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		},
+		{
+			"ID": "a3aa2376426ee4505f354796e55e49a2",
+			"TypeName": "FlaxEngine.BoxCollider",
+			"ParentID": "ef150b614eab4644dd88fe9fa27ce6e5",
+			"Name": "BoxCollider"
+		},
+		{
+			"ID": "6621df5a41b306a1342576a741b780fe",
+			"TypeName": "FlaxEngine.StaticModel",
+			"ParentID": "74a68a984824b4510d12589f199ad68f",
+			"Name": "Floor 2",
+			"Transform": {
+				"Translation": {
+					"X": 1000.0,
+					"Y": 1.1508331298828126,
+					"Z": -180.0
+				},
+				"Scale": {
+					"X": 1.8200006484985352,
+					"Y": 0.5,
+					"Z": 2.2799997329711916
+				}
+			},
+			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "382f1ae946c519eff6e6f3a2965cf56b",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		},
+		{
+			"ID": "106a07c44cf3913352916a8dcba6ceba",
+			"TypeName": "FlaxEngine.BoxCollider",
+			"ParentID": "6621df5a41b306a1342576a741b780fe",
+			"Name": "BoxCollider"
+		},
+		{
+			"ID": "205c85a740498a835800b6b89d23ed97",
+			"TypeName": "FlaxEngine.Spline",
+			"ParentID": "74a68a984824b4510d12589f199ad68f",
+			"Name": "Spline",
+			"Transform": {
+				"Translation": {
+					"X": -1488.3079833984376,
+					"Y": 404.0528564453125,
+					"Z": -672.7783203125
+				},
+				"Orientation": {
+					"X": 0.0,
+					"Y": 0.7071068286895752,
+					"Z": 0.0,
+					"W": 0.7071068286895752
+				}
+			},
+			"Curve": {
+				"Keyframes": [
+					{
+						"Time": 0.0,
+						"Value": {},
+						"TangentIn": {
+							"Translation": {
+								"X": -0.0,
+								"Y": -0.0,
+								"Z": -200.0
+							}
+						},
+						"TangentOut": {
+							"Translation": {
+								"X": 0.0,
+								"Y": 0.0,
+								"Z": 200.0
+							}
+						}
+					},
+					{
+						"Time": 1.0,
+						"Value": {
+							"Translation": {
+								"X": 0.0,
+								"Y": 0.0,
+								"Z": 200.0
+							}
+						},
+						"TangentIn": {
+							"Translation": {
+								"X": -0.0,
+								"Y": -0.0,
+								"Z": -200.00009155273438
+							}
+						},
+						"TangentOut": {
+							"Translation": {
+								"X": 0.0,
+								"Y": 0.0,
+								"Z": 200.00009155273438
+							}
+						}
+					},
+					{
+						"Time": 2.0,
+						"Value": {
+							"Translation": {
+								"X": 0.0,
+								"Y": 0.0,
+								"Z": 400.00018310546877
+							}
+						},
+						"TangentIn": {
+							"Translation": {
+								"X": -0.0,
+								"Y": -0.0,
+								"Z": -192.67343139648438
+							}
+						},
+						"TangentOut": {
+							"Translation": {
+								"X": 0.0,
+								"Y": 0.0,
+								"Z": 192.67343139648438
+							}
+						}
+					},
+					{
+						"Time": 3.0,
+						"Value": {
+							"Translation": {
+								"X": 0.0,
+								"Y": 0.0,
+								"Z": 585.3468627929688
+							}
+						},
+						"TangentIn": {
+							"Translation": {
+								"X": -0.0,
+								"Y": -0.0,
+								"Z": -187.76239013671876
+							}
+						},
+						"TangentOut": {
+							"Translation": {
+								"X": 0.0,
+								"Y": 0.0,
+								"Z": 187.76239013671876
+							}
+						}
+					},
+					{
+						"Time": 4.0,
+						"Value": {
+							"Translation": {
+								"X": 0.0,
+								"Y": 0.0,
+								"Z": 775.5249633789063
+							}
+						},
+						"TangentIn": {
+							"Translation": {
+								"X": -0.0,
+								"Y": -0.0,
+								"Z": -187.94692993164063
+							}
+						},
+						"TangentOut": {
+							"Translation": {
+								"X": 0.0,
+								"Y": 0.0,
+								"Z": 187.94692993164063
+							}
+						}
+					},
+					{
+						"Time": 5.0,
+						"Value": {
+							"Translation": {
+								"X": 0.0,
+								"Y": 0.0,
+								"Z": 961.24072265625
+							}
+						},
+						"TangentIn": {
+							"Translation": {
+								"X": -0.0,
+								"Y": -0.0,
+								"Z": -127.3763427734375
+							}
+						},
+						"TangentOut": {
+							"Translation": {
+								"X": 0.0,
+								"Y": 0.0,
+								"Z": 127.3763427734375
+							}
+						}
+					},
+					{
+						"Time": 6.0,
+						"Value": {
+							"Translation": {
+								"X": 0.0,
+								"Y": 0.0,
+								"Z": 1030.2777099609376
+							}
+						},
+						"TangentIn": {
+							"Translation": {
+								"X": -0.0,
+								"Y": -0.0,
+								"Z": -81.71785736083985
+							}
+						},
+						"TangentOut": {
+							"Translation": {
+								"X": 0.0,
+								"Y": 0.0,
+								"Z": 81.71785736083985
+							}
+						}
+					},
+					{
+						"Time": 6.5,
+						"Value": {
+							"Translation": {
+								"X": 0.0,
+								"Y": 0.0,
+								"Z": 1083.8175048828126
+							}
+						},
+						"TangentIn": {
+							"Translation": {
+								"X": -0.0,
+								"Y": -0.0,
+								"Z": -155.203125
+							}
+						},
+						"TangentOut": {
+							"Translation": {
+								"X": 0.0,
+								"Y": 0.0,
+								"Z": 155.203125
+							}
+						}
+					},
+					{
+						"Time": 6.75,
+						"Value": {
+							"Translation": {
+								"X": 0.0,
+								"Y": 0.0,
+								"Z": 1146.6800537109376
+							}
+						},
+						"TangentIn": {
+							"Translation": {
+								"X": -0.0,
+								"Y": -0.0,
+								"Z": -391.6572265625
+							}
+						},
+						"TangentOut": {
+							"Translation": {
+								"X": 0.0,
+								"Y": 0.0,
+								"Z": 391.6572265625
+							}
+						}
+					},
+					{
+						"Time": 6.875,
+						"Value": {
+							"Translation": {
+								"X": 0.0,
+								"Y": 0.0,
+								"Z": 1230.68896484375
+							}
+						},
+						"TangentIn": {
+							"Translation": {
+								"X": -0.0,
+								"Y": -0.0,
+								"Z": -779.9427490234375
+							}
+						},
+						"TangentOut": {
+							"Translation": {
+								"X": 0.0,
+								"Y": 0.0,
+								"Z": 779.9427490234375
+							}
+						}
+					},
+					{
+						"Time": 6.9375,
+						"Value": {
+							"Translation": {
+								"X": 0.0,
+								"Y": 0.0,
+								"Z": 1292.9193115234376
+							}
+						},
+						"TangentIn": {
+							"Translation": {
+								"X": -0.0,
+								"Y": -0.0,
+								"Z": -995.685546875
+							}
+						},
+						"TangentOut": {
+							"Translation": {
+								"X": 385.6474609375,
+								"Y": 0.0,
+								"Z": 309.7779541015625
+							}
+						}
+					},
+					{
+						"Time": 6.96875,
+						"Value": {
+							"Translation": {
+								"X": -0.00001037181937135756,
+								"Y": 263.53985595703127,
+								"Z": 1623.005615234375
+							}
+						},
+						"TangentIn": {
+							"Translation": {
+								"X": 39167.0,
+								"Y": -205.0,
+								"Z": -124.0
+							}
+						},
+						"TangentOut": {}
+					}
+				]
+			}
+		},
+		{
+			"ID": "4103593d4841913cd98475a5906db045",
+			"TypeName": "FlaxEngine.EmptyActor",
+			"ParentID": "205c85a740498a835800b6b89d23ed97",
+			"Name": "Camera Slot"
+		},
+		{
+			"ID": "a19fdb7140651a50bea88989a64dbd41",
+			"TypeName": "Game.CameraSlot",
+			"ParentID": "4103593d4841913cd98475a5906db045",
+			"V": {}
+		},
+		{
+			"ID": "b0d72c3746caebca055e1f921ca21c7c",
+			"TypeName": "FlaxEngine.Camera",
+			"ParentID": "4103593d4841913cd98475a5906db045",
+			"Name": "Camera",
+			"Transform": {
+				"Orientation": {
+					"X": 0.15223686397075654,
+					"Y": -0.6546379327774048,
+					"Z": 0.1369561105966568,
+					"W": 0.7276785969734192
+				}
+			},
+			"StaticFlags": 0,
+			"Tag": "Camera"
+		},
+		{
+			"ID": "9053ad38428b10594c741db78d7fcca5",
+			"TypeName": "FreeCamera",
+			"ParentID": "b0d72c3746caebca055e1f921ca21c7c",
+			"V": {},
+			"Enabled": false
+		},
+		{
+			"ID": "9c3b25e244f0a086cf44fb9cacd98819",
+			"TypeName": "Game.PathCamera",
+			"ParentID": "b0d72c3746caebca055e1f921ca21c7c",
+			"V": {
+	"CameraSlot": "a19fdb7140651a50bea88989a64dbd41",
+	"SplinePath": "205c85a740498a835800b6b89d23ed97",
+	"Target": "c32a84074f2926075db86e895491df60"
+}
 		}
 	]
 }

@@ -9,5 +9,8 @@ namespace Game;
 
 public static class Extensions
 {
-  
+    public static Vector3 LinearInterpolate(this Spline spline, float time)
+    {
+        return Vector3.Backward;
+    }
 }
