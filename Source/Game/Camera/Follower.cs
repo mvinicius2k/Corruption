@@ -43,13 +43,6 @@ public class Follower : Script
         //    moveToHere = target;
 
         //}
-
-        RigidBody.RotateAround(Target.Position, Transform.Up, mouseInput.X * normalizedSpeed);
-        RigidBody.RotateAround(Target.Position, Transform.Right, mouseInput.Y * normalizedSpeed);
-        
-        if (LookTo != null)
-            RigidBody.LookAt(LookTo.Position, Vector3.Up);
-
         var distance = Vector3.Distance(Actor.Position, Target.Position);
         if (!Mathf.WithinEpsilon(distance, DistanceFromTarget, Values.DistanceEpsilon))
         {
@@ -64,10 +57,12 @@ public class Follower : Script
             RigidBody.LinearVelocity = Vector3.Zero;
         }
 
-        if (!Mathf.WithinEpsilon(Vector3.Distance(Actor.Position, Target.Position), eyeTranslation.Length, Values.DistanceEpsilon))
-        {
 
-        }
+        RigidBody.RotateAround(Target.Position, Transform.Up, mouseInput.X * normalizedSpeed);
+        RigidBody.RotateAround(Target.Position, Transform.Right, mouseInput.Y * normalizedSpeed);
+        
+        if (LookTo != null)
+            RigidBody.LookAt(LookTo.Position, Vector3.Up);
 
 
         //Actor.RotateAround(Target.Position, Actor.Transform.Up, normalizedSpeed);
