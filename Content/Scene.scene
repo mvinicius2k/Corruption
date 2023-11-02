@@ -115,6 +115,7 @@
 					"Z": 11.010000228881836
 				}
 			},
+			"Layer": 2,
 			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
 			"Buffer": {
 				"Entries": [
@@ -131,7 +132,8 @@
 			"ID": "4a7045e748c74e3de29afd8856f99205",
 			"TypeName": "FlaxEngine.BoxCollider",
 			"ParentID": "4a9d87134ab42f4294db6bbcf1902bde",
-			"Name": "BoxCollider"
+			"Name": "BoxCollider",
+			"Layer": 2
 		},
 		{
 			"ID": "c32a84074f2926075db86e895491df60",
@@ -247,46 +249,6 @@
 			"Name": "SphereCollider"
 		},
 		{
-			"ID": "b0d72c3746caebca055e1f921ca21c7c",
-			"TypeName": "FlaxEngine.Camera",
-			"ParentID": "c7cf6f1640e73c68deff1db289b06658",
-			"Name": "Camera",
-			"StaticFlags": 0,
-			"Tag": "Camera"
-		},
-		{
-			"ID": "b9c7c3474431abfbca7482b97938f474",
-			"TypeName": "FreeCamera",
-			"ParentID": "b0d72c3746caebca055e1f921ca21c7c",
-			"V": {},
-			"Enabled": false
-		},
-		{
-			"ID": "a5d88ff644a6738d98ac58a89516babc",
-			"TypeName": "Game.Follower",
-			"ParentID": "b0d72c3746caebca055e1f921ca21c7c",
-			"V": {
-	"Target": "c32a84074f2926075db86e895491df60",
-	"LookTo": "c32a84074f2926075db86e895491df60",
-	"Speed": 50.0,
-	"RigidBody": "c3268dc64eb9476735ae969b28832596",
-	"Angle": {
-		"X": 0.0,
-		"Y": 1.0,
-		"Z": 0.0
-	},
-	"DistanceFromTarget": 507.0,
-	"AproximationSpeed": 15000.0
-}
-		},
-		{
-			"ID": "3cd096974105940d19daf9bffcbd6473",
-			"TypeName": "Game.FreeMouseCamera",
-			"ParentID": "b0d72c3746caebca055e1f921ca21c7c",
-			"V": {},
-			"Enabled": false
-		},
-		{
 			"ID": "97452fb74e35ff5d442313adba6f813e",
 			"TypeName": "FlaxEngine.StaticModel",
 			"ParentID": "74a68a984824b4510d12589f199ad68f",
@@ -303,6 +265,7 @@
 					"Z": 11.010000228881836
 				}
 			},
+			"Layer": 2,
 			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
 			"Buffer": {
 				"Entries": [
@@ -319,7 +282,8 @@
 			"ID": "eef0b20f4a21a01c1b78f699c5e605a2",
 			"TypeName": "FlaxEngine.BoxCollider",
 			"ParentID": "97452fb74e35ff5d442313adba6f813e",
-			"Name": "BoxCollider"
+			"Name": "BoxCollider",
+			"Layer": 2
 		},
 		{
 			"ID": "162ed12a476bf00f022363aaddbd93e3",
@@ -344,6 +308,7 @@
 					"Z": 11.010000228881836
 				}
 			},
+			"Layer": 2,
 			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
 			"Buffer": {
 				"Entries": [
@@ -360,7 +325,41 @@
 			"ID": "3212d2314498e93bd99a169e66b6764a",
 			"TypeName": "FlaxEngine.BoxCollider",
 			"ParentID": "162ed12a476bf00f022363aaddbd93e3",
-			"Name": "BoxCollider"
+			"Name": "BoxCollider",
+			"Layer": 2
+		},
+		{
+			"ID": "b0d72c3746caebca055e1f921ca21c7c",
+			"TypeName": "FlaxEngine.Camera",
+			"ParentID": "74a68a984824b4510d12589f199ad68f",
+			"Name": "Camera",
+			"Transform": {
+				"Translation": {
+					"X": 0.0,
+					"Y": 0.0,
+					"Z": -1206.7940673828126
+				}
+			},
+			"StaticFlags": 0,
+			"Tag": "Camera"
+		},
+		{
+			"ID": "a5d88ff644a6738d98ac58a89516babc",
+			"TypeName": "Game.Follower",
+			"ParentID": "b0d72c3746caebca055e1f921ca21c7c",
+			"V": {
+	"Target": "c32a84074f2926075db86e895491df60",
+	"LookTo": "c32a84074f2926075db86e895491df60",
+	"Speed": 50.0,
+	"RigidBody": "c3268dc64eb9476735ae969b28832596",
+	"Angle": {
+		"X": 0.0,
+		"Y": 1.0,
+		"Z": 0.0
+	},
+	"DistanceFromTarget": 507.0,
+	"AproximationSpeed": 150.0
+}
 		}
 	]
 }
