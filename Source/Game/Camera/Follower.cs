@@ -17,8 +17,10 @@ public class Follower : Script
     public Vector3 Angle;
     public float DistanceFromTarget;
     public float AproximationSpeed = 1000f;
-    public float CameraRadius = 100f;
     public float DistanceMargin = 200f;
+    public float CameraRadius = 200f;
+
+    private Vector3 lastPosition, lastDirection;
     public override void OnUpdate()
     {
         Screen.CursorVisible = false;
@@ -28,31 +30,51 @@ public class Follower : Script
         var normalizedSpeed = Speed * Time.DeltaTime;
         var normalizedAproximationSpeed = AproximationSpeed * Time.DeltaTime;
 
-        bool needFix = false;
-        Vector3 surfaceNormal;
-        Vector3 collisionpoint;
-        if (Physics.OverlapSphere(Actor.Position, CameraRadius, out Collider[] results, ((uint)LayerEnum.World), false))
-        {
-
-            foreach (var collider in results)
-            {
-                var rayDirection = collider.Position - Actor.Position;
-                var raycastHit = Physics.RayCast(Actor.Position, rayDirection.Normalized, out var info, layerMask: ((uint)LayerEnum.World), hitTriggers: false);
-                surfaceNormal = info.Normal;
-                collisionpoint = info.Point;
-            }
-
-        }
-        
+        lastDirection = (lastPosition - Actor.Position).Normalized;
+        lastPosition = Actor.Position;
         //Movimento livre
         Actor.RotateAround(Target.Position, Transform.Up, mouseInput.X * normalizedSpeed);
         Actor.RotateAround(Target.Position, Transform.Right, mouseInput.Y * normalizedSpeed);
 
-        var angle = Vector3.Angle(surfaceNormal, 
+        if(Physics.RayCast(Actor.Position, lastDirection,out var info, CameraRadius, ((uint)LayerEnum.World), false))
+        {
+            Debug.Log("Corrigido pela especulação");
+            Actor.Position = info.Point * info.Normal + CameraRadius;
+        }
+        else
+        {
+            var outside = Physics.LineCast
+                (
+                    start: lastPosition,
+                    end: Actor.Position,
+                    hitInfo: out var hit,
+                    layerMask: ((uint)LayerEnum.World),
+                    hitTriggers: false
+                );
+
+            if (outside)
+            {
+                Debug.Log("Precisa corrigir " + hit.Collider.Name + " em " + hit.Point);
+                Actor.Position = hit.Point * hit.Normal + CameraRadius;
+                //Actor.AddMovement(info.Point);
+            }
+        }
+        
+        
+
+        
+
+        //var pointToTargetDirection = (Target.Position - collisionpoint).Normalized;
+        //var angle = Vector3.Angle(surfaceNormal, pointToTargetDirection);
+        //if(angle < 90f)
+        //{
+        //    Debug.Log("Precisa de correção");
+        //}
 
         if (LookTo != null)
             Actor.LookAt(LookTo.Position, Vector3.Up);
 
+        //Corrigindo distanciamento
         var distance = Vector3.Distance(Actor.Position, Target.Position);
         if (!Mathf.WithinEpsilon(distance, DistanceFromTarget, DistanceMargin))
         {
@@ -68,10 +90,25 @@ public class Follower : Script
 
     }
 
-    public override void OnStart()
-    {
+    //public override void OnFixedUpdate()
+    //{
+    //    var needFix = Physics.SphereCast(Actor.Position, CameraRadius, Vector3.Down, out var hitInfo, 10f, ((uint)LayerEnum.World), false);
+    //    if (needFix)
+    //    {
 
-    }
+    //        //foreach (var collider in results)
+    //        //{
+    //        //    var rayDirection = collider.Position - Actor.Position;
+    //        //    Physics.RayCast(Actor.Position, rayDirection.Normalized, out var info, layerMask: ((uint)LayerEnum.World), hitTriggers: false);
+    //        //    surfaceNormal = info.Normal;
+    //        //}
+    //        Debug.Log("hit em " + hitInfo.Point);
+    //        if (hitInfo.Point == Vector3.Zero)
+    //            return;
+    //        Actor.Position = hitInfo.Point + hitInfo.Normal * CameraRadius +11f;
+    //    }
+    //}
+   
 
 
 
