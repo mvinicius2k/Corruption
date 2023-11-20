@@ -99,6 +99,31 @@
 			"Mode": 0
 		},
 		{
+			"ID": "36da2c0a43ddd90f0b5df593a41acc77",
+			"TypeName": "FlaxEngine.Camera",
+			"ParentID": "74a68a984824b4510d12589f199ad68f",
+			"Name": "Camera",
+			"Transform": {
+				"Translation": {
+					"X": 0.0,
+					"Y": 599.0499877929688,
+					"Z": 0.0
+				}
+			},
+			"StaticFlags": 0
+		},
+		{
+			"ID": "709fbf40464bda6d3fd3d89b0e47af3a",
+			"TypeName": "Game.Follower",
+			"ParentID": "36da2c0a43ddd90f0b5df593a41acc77",
+			"V": {
+	"Target": "c32a84074f2926075db86e895491df60",
+	"LookTo": "c32a84074f2926075db86e895491df60",
+	"Speed": 10.0,
+	"DistanceFromTarget": 561.0
+}
+		},
+		{
 			"ID": "4a9d87134ab42f4294db6bbcf1902bde",
 			"TypeName": "FlaxEngine.StaticModel",
 			"ParentID": "74a68a984824b4510d12589f199ad68f",
@@ -106,8 +131,14 @@
 			"Transform": {
 				"Translation": {
 					"X": -1642.693115234375,
-					"Y": -337.0,
+					"Y": 0.0,
 					"Z": 0.0
+				},
+				"Orientation": {
+					"X": -0.14780940115451814,
+					"Y": 0.0,
+					"Z": 0.0,
+					"W": 0.9890158772468567
 				},
 				"Scale": {
 					"X": 44.02000045776367,
@@ -133,7 +164,8 @@
 			"TypeName": "FlaxEngine.BoxCollider",
 			"ParentID": "4a9d87134ab42f4294db6bbcf1902bde",
 			"Name": "BoxCollider Floor",
-			"Layer": 2
+			"Layer": 2,
+			"ContactOffset": 0.0
 		},
 		{
 			"ID": "c32a84074f2926075db86e895491df60",
@@ -143,7 +175,7 @@
 			"Transform": {
 				"Translation": {
 					"X": 13.972061157226563,
-					"Y": -19.90039825439453,
+					"Y": 265.2176818847656,
 					"Z": -411.8182678222656
 				}
 			},
@@ -228,21 +260,10 @@
 			"SourceRadius": 7.359999656677246
 		},
 		{
-			"ID": "36da2c0a43ddd90f0b5df593a41acc77",
-			"TypeName": "FlaxEngine.Camera",
+			"ID": "52208f5b4da66baebdbd27860f7a1b04",
+			"TypeName": "FlaxEngine.EmptyActor",
 			"ParentID": "74a68a984824b4510d12589f199ad68f",
-			"Name": "Camera"
-		},
-		{
-			"ID": "709fbf40464bda6d3fd3d89b0e47af3a",
-			"TypeName": "Game.Follower",
-			"ParentID": "36da2c0a43ddd90f0b5df593a41acc77",
-			"V": {
-	"Target": "c32a84074f2926075db86e895491df60",
-	"LookTo": "c32a84074f2926075db86e895491df60",
-	"Speed": 50.0,
-	"DistanceFromTarget": 524.0
-}
+			"Name": "EmptyActor"
 		}
 	]
 }

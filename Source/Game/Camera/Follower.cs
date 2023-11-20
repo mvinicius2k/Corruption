@@ -1,5 +1,6 @@
 ﻿using FlaxEditor.Gizmo;
 using FlaxEngine;
+using FlaxEngine.Assertions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,64 +13,110 @@ namespace Game;
 public class Follower : Script
 {
     public Actor Target, LookTo;
+
     public float Speed = 500f;
-    public RigidBody RigidBody;
     public Vector3 Angle;
     public float DistanceFromTarget;
     public float AproximationSpeed = 1000f;
     public float DistanceMargin = 200f;
     public float CameraRadius = 200f;
 
-    private Vector3 lastPosition, lastDirection;
+
+    private Vector3 lastPosition;
+    private Collider wall;
+    private Vector3 surfaceDirection; //Direção entre a câmera e o alvo projetada na superfície
+    private Vector3 closestPoint;
+
+
+    /// <summary>
+    /// Move a câmera em uma unidade de acordo com a superfície. O comportamente é de como se a câmera deslizasse sobre ela.
+    /// </summary>
+    /// <param name="surfaceNormal"></param>
+    /// <param name="movementDirection"></param>
+    /// <param name="closestPoint"></param>
+    /// <param name="speed"></param>
+    private void MoveSlidingByWall(Vector3 surfaceNormal, Vector3 movementDirection, Vector3 closestPoint, float speed)
+    {
+
+        surfaceDirection = Vector3.ProjectOnPlane(Target.Position - Actor.Position, surfaceNormal).Normalized;
+
+
+        Actor.Position = closestPoint + surfaceNormal * CameraRadius;
+
+        if (movementDirection == Vector3.Zero)
+            return;
+        var dot = Vector3.Dot(movementDirection, surfaceNormal);
+        if (dot < 0f)
+        {
+            Actor.AddMovement(surfaceDirection * speed * Mathf.Abs(dot));
+            Debug.Log(dot);
+        }
+
+    }
+
+    public override void OnStart()
+    {
+        lastPosition = Actor.Position;
+    }
+
     public override void OnUpdate()
     {
+        
         Screen.CursorVisible = false;
         Screen.CursorLock = CursorLockMode.Locked;
 
-        var mouseInput = new Vector2(Input.GetAxis(Values.InputMouseX), Input.GetAxis(Values.InputMouseY));
+
+        var mouseInput = new Vector2(Input.GetAxis(Values.InputMouseX), Input.GetAxis(Values.InputMouseY)); //Suavizar entrada da camera 
         var normalizedSpeed = Speed * Time.DeltaTime;
         var normalizedAproximationSpeed = AproximationSpeed * Time.DeltaTime;
 
-        lastDirection = (lastPosition - Actor.Position).Normalized;
         lastPosition = Actor.Position;
         //Movimento livre
         Actor.RotateAround(Target.Position, Transform.Up, mouseInput.X * normalizedSpeed);
         Actor.RotateAround(Target.Position, Transform.Right, mouseInput.Y * normalizedSpeed);
 
-        if(Physics.RayCast(Actor.Position, lastDirection,out var info, CameraRadius, ((uint)LayerEnum.World), false))
+
+        var movementDirection = (Actor.Position - lastPosition).Normalized; //Direção de acordo com a útilma posição 
+
+        //Testando colisões. 
+        //Linecast verificará se a câmera "pulou" um obstáculo no movimento rápido
+        //Overlap verificará se uma colisão está acontecendo com o raio da câmera
+        if (Physics.LineCast(lastPosition, Actor.Position, out var castHits, ((uint)LayerEnum.World)))
         {
-            Debug.Log("Corrigido pela especulação");
-            Actor.Position = info.Point * info.Normal + CameraRadius;
+            wall = (Collider)castHits.Collider;
+            wall.ClosestPoint(lastPosition, out closestPoint);
+            MoveSlidingByWall(castHits.Normal, movementDirection, closestPoint, normalizedAproximationSpeed * 0.5f);
+        }
+        else if (Physics.OverlapSphere(Actor.Position, CameraRadius, out Collider[] hits, ((uint)LayerEnum.World)))
+        {
+
+            //Obtendo collider mais próximo
+            var nearestDistance = float.MaxValue;
+            foreach (Collider collider in hits)
+            {
+                collider.ClosestPoint(Actor.Position, out var closest);
+                var pointDistance = Vector3.Distance(Actor.Position, closest);
+                if (pointDistance < nearestDistance)
+                {
+                    nearestDistance = Vector3.Distance(Actor.Position, closestPoint);
+                    closestPoint = closest;
+                    wall = collider;
+
+                }
+            }
+
+            //Obtendo normal da superfície
+            var rayDirection = (closestPoint - Actor.Position).Normalized;
+            if (Physics.RayCast(Actor.Position, rayDirection, out var hitInfo, layerMask: ((uint)LayerEnum.World)))
+            {
+                MoveSlidingByWall(hitInfo.Normal, movementDirection, closestPoint, normalizedAproximationSpeed * 0.5f);
+            }
         }
         else
         {
-            var outside = Physics.LineCast
-                (
-                    start: lastPosition,
-                    end: Actor.Position,
-                    hitInfo: out var hit,
-                    layerMask: ((uint)LayerEnum.World),
-                    hitTriggers: false
-                );
-
-            if (outside)
-            {
-                Debug.Log("Precisa corrigir " + hit.Collider.Name + " em " + hit.Point);
-                Actor.Position = hit.Point * hit.Normal + CameraRadius;
-                //Actor.AddMovement(info.Point);
-            }
+            wall = null;
+            surfaceDirection = Vector3.Zero;
         }
-        
-        
-
-        
-
-        //var pointToTargetDirection = (Target.Position - collisionpoint).Normalized;
-        //var angle = Vector3.Angle(surfaceNormal, pointToTargetDirection);
-        //if(angle < 90f)
-        //{
-        //    Debug.Log("Precisa de correção");
-        //}
 
         if (LookTo != null)
             Actor.LookAt(LookTo.Position, Vector3.Up);
@@ -78,37 +125,17 @@ public class Follower : Script
         var distance = Vector3.Distance(Actor.Position, Target.Position);
         if (!Mathf.WithinEpsilon(distance, DistanceFromTarget, DistanceMargin))
         {
-            if (distance < DistanceFromTarget)
-                Actor.AddMovement(Actor.Transform.Backward * normalizedAproximationSpeed);
+            //if (distance < DistanceFromTarget)
+            //    Actor.AddMovement(Actor.Transform.Backward * normalizedAproximationSpeed);
 
-            else
-                Actor.AddMovement(Actor.Transform.Forward * normalizedAproximationSpeed);
+            //else
+            //    Actor.AddMovement(Actor.Transform.Forward * normalizedAproximationSpeed);
         }
 
 
 
 
     }
-
-    //public override void OnFixedUpdate()
-    //{
-    //    var needFix = Physics.SphereCast(Actor.Position, CameraRadius, Vector3.Down, out var hitInfo, 10f, ((uint)LayerEnum.World), false);
-    //    if (needFix)
-    //    {
-
-    //        //foreach (var collider in results)
-    //        //{
-    //        //    var rayDirection = collider.Position - Actor.Position;
-    //        //    Physics.RayCast(Actor.Position, rayDirection.Normalized, out var info, layerMask: ((uint)LayerEnum.World), hitTriggers: false);
-    //        //    surfaceNormal = info.Normal;
-    //        //}
-    //        Debug.Log("hit em " + hitInfo.Point);
-    //        if (hitInfo.Point == Vector3.Zero)
-    //            return;
-    //        Actor.Position = hitInfo.Point + hitInfo.Normal * CameraRadius +11f;
-    //    }
-    //}
-   
 
 
 
@@ -122,6 +149,17 @@ public class Follower : Script
 
         if (Target == null)
             return;
+
+        if (wall != null)
+        {
+            DebugDraw.DrawSphere(new BoundingSphere
+            {
+                Center = closestPoint,
+                Radius = 10f,
+            }, Color.BlueViolet);
+
+            DebugDraw.DrawRay(closestPoint, surfaceDirection, Color.Blue);
+        }
 
         DebugDraw.DrawWireSphere(new BoundingSphere
         {
