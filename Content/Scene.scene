@@ -99,47 +99,11 @@
 			"Mode": 0
 		},
 		{
-			"ID": "36da2c0a43ddd90f0b5df593a41acc77",
-			"TypeName": "FlaxEngine.Camera",
-			"ParentID": "74a68a984824b4510d12589f199ad68f",
-			"Name": "Camera",
-			"Transform": {
-				"Translation": {
-					"X": 0.0,
-					"Y": 599.0499877929688,
-					"Z": 0.0
-				}
-			},
-			"StaticFlags": 0
-		},
-		{
-			"ID": "709fbf40464bda6d3fd3d89b0e47af3a",
-			"TypeName": "Game.Follower",
-			"ParentID": "36da2c0a43ddd90f0b5df593a41acc77",
-			"V": {
-	"Target": "c32a84074f2926075db86e895491df60",
-	"LookTo": "c32a84074f2926075db86e895491df60",
-	"Speed": 10.0,
-	"DistanceFromTarget": 561.0
-}
-		},
-		{
 			"ID": "4a9d87134ab42f4294db6bbcf1902bde",
 			"TypeName": "FlaxEngine.StaticModel",
 			"ParentID": "74a68a984824b4510d12589f199ad68f",
 			"Name": "Floor",
 			"Transform": {
-				"Translation": {
-					"X": -1642.693115234375,
-					"Y": 0.0,
-					"Z": 0.0
-				},
-				"Orientation": {
-					"X": -0.14780940115451814,
-					"Y": 0.0,
-					"Z": 0.0,
-					"W": 0.9890158772468567
-				},
 				"Scale": {
 					"X": 44.02000045776367,
 					"Y": 0.5,
@@ -174,9 +138,9 @@
 			"Name": "Player",
 			"Transform": {
 				"Translation": {
-					"X": 13.972061157226563,
-					"Y": 265.2176818847656,
-					"Z": -411.8182678222656
+					"X": 0.0,
+					"Y": 88.109619140625,
+					"Z": 0.0
 				}
 			},
 			"OverrideMass": true,
@@ -260,10 +224,239 @@
 			"SourceRadius": 7.359999656677246
 		},
 		{
-			"ID": "52208f5b4da66baebdbd27860f7a1b04",
+			"ID": "83904203407b37eb31ce1f8cf7e4ea5f",
 			"TypeName": "FlaxEngine.EmptyActor",
 			"ParentID": "74a68a984824b4510d12589f199ad68f",
-			"Name": "EmptyActor"
+			"Name": "CameraSlot",
+			"Transform": {
+				"Translation": {
+					"X": 0.0,
+					"Y": 479.9367370605469,
+					"Z": -365.96148681640627
+				}
+			}
+		},
+		{
+			"ID": "6dfee8c14ffa06fa627dc19a1fbc1e0c",
+			"TypeName": "Game.CameraFollower",
+			"ParentID": "83904203407b37eb31ce1f8cf7e4ea5f",
+			"V": {
+	"Target": "c32a84074f2926075db86e895491df60",
+	"LookTo": "c32a84074f2926075db86e895491df60",
+	"Speed": 0.1,
+	"CameraRadius": 10.0,
+	"Camera": "eadfa58142b2c104eb2bda9f42d730a8",
+	"MinAngle": 10.0,
+	"MaxAngle": 170.0
+}
+		},
+		{
+			"ID": "eadfa58142b2c104eb2bda9f42d730a8",
+			"TypeName": "FlaxEngine.Camera",
+			"ParentID": "83904203407b37eb31ce1f8cf7e4ea5f",
+			"Name": "Camera"
+		},
+		{
+			"ID": "eef5c6b142781dc7deb9c3bfe5d71629",
+			"TypeName": "FlaxEngine.StaticModel",
+			"ParentID": "74a68a984824b4510d12589f199ad68f",
+			"Name": "Floor 0",
+			"Transform": {
+				"Translation": {
+					"X": 0.0,
+					"Y": 172.9866943359375,
+					"Z": 414.2569580078125
+				},
+				"Scale": {
+					"X": 8.260000228881836,
+					"Y": 5.650000095367432,
+					"Z": 3.3299999237060549
+				}
+			},
+			"Layer": 2,
+			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "382f1ae946c519eff6e6f3a2965cf56b",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		},
+		{
+			"ID": "849fb6724ed6ade2fc92ca90681ab1c6",
+			"TypeName": "FlaxEngine.BoxCollider",
+			"ParentID": "eef5c6b142781dc7deb9c3bfe5d71629",
+			"Name": "BoxCollider Floor",
+			"Layer": 2,
+			"ContactOffset": 0.0
+		},
+		{
+			"ID": "c0f7749f4957eb6421f032ac4529d501",
+			"TypeName": "FlaxEngine.StaticModel",
+			"ParentID": "74a68a984824b4510d12589f199ad68f",
+			"Name": "Floor 1",
+			"Transform": {
+				"Translation": {
+					"X": -459.2457275390625,
+					"Y": 172.9866943359375,
+					"Z": 19.559215545654298
+				},
+				"Orientation": {
+					"X": 0.0,
+					"Y": 0.7071068286895752,
+					"Z": 0.0,
+					"W": 0.7071068286895752
+				},
+				"Scale": {
+					"X": 8.260000228881836,
+					"Y": 5.650000095367432,
+					"Z": 3.3299999237060549
+				}
+			},
+			"Layer": 2,
+			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "382f1ae946c519eff6e6f3a2965cf56b",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		},
+		{
+			"ID": "b44ab2824c1075423ada3fa1be842bd3",
+			"TypeName": "FlaxEngine.BoxCollider",
+			"ParentID": "c0f7749f4957eb6421f032ac4529d501",
+			"Name": "BoxCollider Floor",
+			"Layer": 2,
+			"ContactOffset": 0.0
+		},
+		{
+			"ID": "fa837f90409d78065e8944b1f14b736b",
+			"TypeName": "FlaxEngine.StaticModel",
+			"ParentID": "74a68a984824b4510d12589f199ad68f",
+			"Name": "Floor 2",
+			"Transform": {
+				"Translation": {
+					"X": 427.33221435546877,
+					"Y": 165.78924560546876,
+					"Z": 598.2006225585938
+				},
+				"Scale": {
+					"X": 2.310000419616699,
+					"Y": 5.650000095367432,
+					"Z": 3.3299999237060549
+				}
+			},
+			"Layer": 2,
+			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "382f1ae946c519eff6e6f3a2965cf56b",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		},
+		{
+			"ID": "62e0636a4b1dcd6b9b5cf8be390f7cad",
+			"TypeName": "FlaxEngine.BoxCollider",
+			"ParentID": "fa837f90409d78065e8944b1f14b736b",
+			"Name": "BoxCollider Floor",
+			"Layer": 2,
+			"ContactOffset": 0.0
+		},
+		{
+			"ID": "b7c697f846ab96e9d8c0a89c4b7aa9cc",
+			"TypeName": "FlaxEngine.StaticModel",
+			"ParentID": "74a68a984824b4510d12589f199ad68f",
+			"Name": "Floor 3",
+			"Transform": {
+				"Translation": {
+					"X": 584.5729370117188,
+					"Y": 165.78924560546876,
+					"Z": 561.2570190429688
+				},
+				"Scale": {
+					"X": 2.310000419616699,
+					"Y": 5.650000095367432,
+					"Z": 3.3299999237060549
+				}
+			},
+			"Layer": 2,
+			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "382f1ae946c519eff6e6f3a2965cf56b",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		},
+		{
+			"ID": "d7c86a214cf8f9adf182e291cd0e40de",
+			"TypeName": "FlaxEngine.BoxCollider",
+			"ParentID": "b7c697f846ab96e9d8c0a89c4b7aa9cc",
+			"Name": "BoxCollider Floor",
+			"Layer": 2,
+			"ContactOffset": 0.0
+		},
+		{
+			"ID": "5e1dea5c4b87b5a2da3df0868c831ed6",
+			"TypeName": "FlaxEngine.StaticModel",
+			"ParentID": "74a68a984824b4510d12589f199ad68f",
+			"Name": "Floor 4",
+			"Transform": {
+				"Translation": {
+					"X": 1022.2625122070313,
+					"Y": 165.78924560546876,
+					"Z": 581.6376342773438
+				},
+				"Orientation": {
+					"X": 0.0,
+					"Y": 0.3826834559440613,
+					"Z": 0.0,
+					"W": 0.9238795042037964
+				},
+				"Scale": {
+					"X": 9.170000076293946,
+					"Y": 5.650000095367432,
+					"Z": 3.3299999237060549
+				}
+			},
+			"Layer": 2,
+			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "382f1ae946c519eff6e6f3a2965cf56b",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		},
+		{
+			"ID": "d0a54f41499fc604b94ad0bb166b73bb",
+			"TypeName": "FlaxEngine.BoxCollider",
+			"ParentID": "5e1dea5c4b87b5a2da3df0868c831ed6",
+			"Name": "BoxCollider Floor",
+			"Layer": 2,
+			"ContactOffset": 0.0
 		}
 	]
 }
