@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using FlaxEngine;
@@ -13,7 +15,6 @@ public class CameraFollower : Script
     public Actor LookTo;
     public float Speed = 500f;
     public float CameraRadius = 200f;
-    public Camera Camera;
     public bool DisableInput;
 
     public float MinAngle = 10f;
@@ -22,18 +23,7 @@ public class CameraFollower : Script
     private float distance;
     private Vector3 targetLastPosition;
 
-    [EditorAction]
-    public void Install()
-    {
-        Camera ??= Actor.GetScript<Camera>();
-        if (Camera == null)
-        {
-            var newCamera = new Camera();
-            newCamera.Parent = Actor;
-            Camera = newCamera;
-        }
-    }
-
+   
     /// <inheritdoc/>
     public override void OnStart()
     {
@@ -61,24 +51,23 @@ public class CameraFollower : Script
         var rayDirection = (Actor.Position - Target.Position).Normalized;
         if (Physics.SphereCast(Target.Position,CameraRadius, rayDirection, out var hitInfo, distance, ((uint)LayerEnum.World)))
         {
-            Camera.Position = hitInfo.Point + hitInfo.Normal * CameraRadius;
-            Debug.Log(".");
+            Actor.Position = hitInfo.Point + hitInfo.Normal * CameraRadius;
             
         }
         
-        else if (Camera.LocalPosition != Vector3.Zero)
+        else if (Physics.SphereCast(Actor.Position, CameraRadius, rayDirection * -1f, out var hit, distance - (Vector3.Distance(Actor.Position, Target.Position)), ((uint)LayerEnum.World)))
         {
-            Camera.LocalPosition = Vector3.Zero;
+            Actor.Position = hitInfo.Point + hitInfo.Normal * CameraRadius;
         }
 
 
         
 
-        if (LookTo != null)
-            Actor.LookAt(LookTo.Position, Vector3.Up);
 
         Actor.AddMovement(Target.Position - targetLastPosition);
 
+        if (LookTo != null)
+            Actor.LookAt(LookTo.Position, Vector3.Up);
         targetLastPosition = Target.Position;
     }
 

@@ -1,4 +1,6 @@
-﻿using FlaxEditor.CustomEditors;
+﻿
+#if FLAX_EDITOR
+using FlaxEditor.CustomEditors;
 using FlaxEditor.CustomEditors.Editors;
 using FlaxEditor.CustomEditors.GUI;
 using FlaxEditor.Utilities;
@@ -45,3 +47,4 @@ public class RichEditor : GenericEditor
         //button.Button.Clicked += () => Debug.Log("Button clicked! The speed is " + (IsSingleObject ? (Values[0] as MyScript).Speed : ""));
     }
 }
+#endif

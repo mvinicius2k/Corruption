@@ -231,8 +231,8 @@
 			"Transform": {
 				"Translation": {
 					"X": 0.0,
-					"Y": 479.9367370605469,
-					"Z": -365.96148681640627
+					"Y": 151.1393585205078,
+					"Z": -408.5780334472656
 				}
 			}
 		},
@@ -243,18 +243,18 @@
 			"V": {
 	"Target": "c32a84074f2926075db86e895491df60",
 	"LookTo": "c32a84074f2926075db86e895491df60",
-	"Speed": 0.1,
+	"Speed": 0.5,
 	"CameraRadius": 10.0,
-	"Camera": "eadfa58142b2c104eb2bda9f42d730a8",
-	"MinAngle": 10.0,
-	"MaxAngle": 170.0
+	"Camera": "eadfa58142b2c104eb2bda9f42d730a8"
 }
 		},
 		{
 			"ID": "eadfa58142b2c104eb2bda9f42d730a8",
 			"TypeName": "FlaxEngine.Camera",
 			"ParentID": "83904203407b37eb31ce1f8cf7e4ea5f",
-			"Name": "Camera"
+			"Name": "Camera",
+			"Near": 4.0,
+			"Far": 4000.0
 		},
 		{
 			"ID": "eef5c6b142781dc7deb9c3bfe5d71629",
@@ -457,6 +457,56 @@
 			"Name": "BoxCollider Floor",
 			"Layer": 2,
 			"ContactOffset": 0.0
+		},
+		{
+			"ID": "7a77cd434a1341754fee5b8ae59fd430",
+			"TypeName": "FlaxEngine.PostFxVolume",
+			"ParentID": "74a68a984824b4510d12589f199ad68f",
+			"Name": "PostFxVolume",
+			"Transform": {
+				"Translation": {
+					"X": 654.1511840820313,
+					"Y": 0.0,
+					"Z": 0.0
+				}
+			},
+			"Priority": 10,
+			"Settings": {
+				"AO": {},
+				"GI": {},
+				"Bloom": {
+					"Enabled": false,
+					"Intensity": 2.990000009536743,
+					"Threshold": 3.119999885559082
+				},
+				"ToneMapping": {},
+				"ColorGrading": {
+					"OverrideFlags": 3072,
+					"ColorSaturationMidtones": {
+						"X": 1.0,
+						"Y": 0.0,
+						"Z": 0.040958404541015628,
+						"W": 1.0
+					},
+					"ColorContrastMidtones": {
+						"X": 1.0,
+						"Y": 0.0,
+						"Z": 0.0,
+						"W": 1.0
+					}
+				},
+				"EyeAdaptation": {},
+				"CameraArtifacts": {},
+				"LensFlares": {},
+				"DepthOfField": {},
+				"MotionBlur": {
+					"OverrideFlags": 1,
+					"Enabled": false
+				},
+				"SSR": {},
+				"AA": {},
+				"PostFxMaterials": {}
+			}
 		}
 	]
 }
