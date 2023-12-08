@@ -8,3 +8,8 @@ public class EntityMovementData
 
 
 }
+
+public class EntityStats
+{
+
+}

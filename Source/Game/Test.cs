@@ -1,21 +1,52 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using FlaxEngine;
+using FlaxEngine.GUI;
 
 namespace Game;
+
+
 
 /// <summary>
 /// Test Script.
 /// </summary>
+/// 
+
 public class Test : Script
 {
-    public Collider Collider;
+    
+    public MutableScript<IEffect> Effect;
+
+
+    public Dictionary<string, MutableScript<IEffect>> dict;
     public override void OnStart()
     {
-        Collider.CollisionEnter += Lo;
-        
+
+
     }
+    [EditorAction]
+    public void Set()
+    {
+
+        //Effect.TrySetImplementor(typeof(TailEffect));
+        //Effect.refHolder = Actor.GetScript<TailEffect>();
     
+    
+    }
+
+
+    [EditorAction]
+    public void View()
+    {
+
+        var msg = "null";
+        if (Effect.Value != null)
+        {
+            msg = Effect.Value.ToString() + " " + Effect.Value.Name;
+        }
+        Debug.Log("Tipo: " + msg);
+    }
     public void Lo(Collision c)
     {
         Debug.Log("Colidiu com " + c.OtherActor);

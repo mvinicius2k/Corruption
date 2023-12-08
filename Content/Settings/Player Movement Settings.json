@@ -1,9 +1,9 @@
 {
 	"ID": "acd45c4d4fd82a90011ef2a44b269789",
 	"TypeName": "EntityMovementData",
-	"EngineBuild": 6344,
+	"EngineBuild": 6404,
 	"Data": {
-	"Speed": 10000.0,
+	"Speed": 20000.0,
 	"JumpForce": 60000.0
 }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using FlaxEngine;
 
+
 namespace Game
 {
     /// <summary>
@@ -9,10 +10,11 @@ namespace Game
     /// </summary>
     public class EntityMovement : Script, IMoveUpdater
     {
-        [Tooltip($"Do tipo {nameof(EntityMovementData)}")]
-        public JsonAsset DataProps;
-        private EntityMovementData props;
-        public EntityMovementData Props => props;
+        public PipedFloat Speed = new PipedFloat { BaseValue = 20000f } ;
+        public PipedFloat JumpForce = new PipedFloat { BaseValue = 10000f };
+        
+
+
 
         public float TargetFront => Mathf.Atan2(MoveVector.X, MoveVector.Z) * Mathf.RadiansToDegrees;
         public bool PauseFront => MoveVector.IsZero;
@@ -32,23 +34,18 @@ namespace Game
         {
 
             Jumping = true;
-            RigidBody.AddForce(new Vector3(0f, props.JumpForce, 0f), ForceMode.Impulse);
+            RigidBody.AddForce(new Vector3(0f, JumpForce.TotalValue, 0f), ForceMode.Impulse);
             jumpAirDurationCount = JumpAirDuration;
         }
         public void AddImpulseInAir()
         {
-            RigidBody.AddForce(new Vector3 { Y = props.JumpForce * JumpAirForceMultiplicator });
+            RigidBody.AddForce(new Vector3 { Y = JumpForce.TotalValue * JumpAirForceMultiplicator });
             jumpAirDurationCount -= Time.DeltaTime;
 
             Jumping = JumpAirDuration <= 0f;
         }
 
-        /// <inheritdoc/>
-        public override void OnStart()
-        {
-            props = DataProps.CreateInstance<EntityMovementData>();
-        }
-
+      
         /// <inheritdoc/>
         public override void OnEnable()
         {
@@ -64,7 +61,7 @@ namespace Game
         public override void OnUpdate()
         {
 
-            var speedDelta = Props.Speed * Time.DeltaTime;
+            var speedDelta = Speed.TotalValue * Time.DeltaTime;
 
             RigidBody.LinearVelocity = new Vector3
             {

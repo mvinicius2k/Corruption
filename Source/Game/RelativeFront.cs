@@ -8,7 +8,6 @@ using System.Threading.Tasks;
 namespace Game;
 public class RelativeFront : Script
 {
-    public Actor TargetActor;
     [Tooltip("Em graus")]
     public float RangeAcceptable = 0.5f;
     public float PassLenght = 10f;

@@ -9,6 +9,7 @@ namespace Game
     /// </summary>
     public class Entity : Script
     {
+        public EntityMovement EntityMovement;
         /// <inheritdoc/>
         public override void OnStart()
         {
