@@ -1,6 +1,7 @@
 ﻿using FlaxEngine;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -17,6 +18,7 @@ namespace Game
     public class EntityDefense : Script
     {
         public bool Blind;
+        [DefaultValue(1000f)]
         public float CurrentLife = 1000f;
         public float MaxLife = 1000f;
         public Entity Entity;

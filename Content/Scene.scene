@@ -685,20 +685,6 @@
 			"ParentID": "d9b33f224ee3d2497c1573b54c7c4ccd",
 			"V": {
 	"ColliderTrigger": "d9b33f224ee3d2497c1573b54c7c4ccd",
-	"hit": {
-		"Damage": 0.0,
-		"Force": 0.0,
-		"Kind": 0,
-		"Effect": {
-			"objectHolder": {
-				"$type": "Game.SpeedEffect, Game.CSharp",
-				"Duration": 5.0,
-				"Name": "Armadilha de lentidão",
-				"Amount": 0.1
-			},
-			"refHolder": null
-		}
-	},
 	"Actor": "d9b33f224ee3d2497c1573b54c7c4ccd",
 	"Parent": "d9b33f224ee3d2497c1573b54c7c4ccd",
 	"OrderInParent": 0
@@ -727,27 +713,13 @@
 			"TypeName": "Game.Test",
 			"ParentID": "3bf95ea74d4d7d614fee268b7b4c63c3",
 			"V": {
-	"Effect": {
-		"objectHolder": {
-			"$type": "Game.SpeedEffect, Game.CSharp",
-			"Duration": 0.0,
-			"Name": "Outro nome",
-			"Amount": 0.0
-		},
-		"refHolder": null
-	},
 	"dict": {
 		"Key": {
 			"objectHolder": null,
 			"refHolder": null
 		},
 		"Key*": {
-			"objectHolder": {
-				"$type": "Game.SpeedEffect, Game.CSharp",
-				"Duration": 0.0,
-				"Name": "Este nome",
-				"Amount": 0.0
-			},
+			"objectHolder": null,
 			"refHolder": null
 		}
 	},
@@ -758,9 +730,9 @@
 		},
 		{
 			"ID": "a23ea1724687cb4bbdeb4c8ba5c16c1c",
-			"TypeName": "FlaxEngine.StaticModel",
+			"PrefabID": "18285ba34c0ec4934165fe93ce815280",
+			"PrefabObjectID": "1ee4219b416de8e57addcd8504b45423",
 			"ParentID": "74a68a984824b4510d12589f199ad68f",
-			"Name": "StaticModel 0",
 			"Transform": {
 				"Translation": {
 					"X": 434.2215881347656,
@@ -768,47 +740,46 @@
 					"Z": -594.34423828125
 				}
 			},
-			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
 			"Buffer": {
 				"Entries": [
-					{
-						"Material": "00000000000000000000000000000000",
-						"ShadowsMode": 3,
-						"Visible": true,
-						"ReceiveDecals": true
-					}
+					{}
 				]
 			}
 		},
 		{
 			"ID": "a35379924a6f1dba5831e59d2e729871",
-			"TypeName": "FlaxEngine.BoxCollider",
-			"ParentID": "a23ea1724687cb4bbdeb4c8ba5c16c1c",
-			"Name": "Trap",
-			"IsTrigger": true
+			"PrefabID": "18285ba34c0ec4934165fe93ce815280",
+			"PrefabObjectID": "a4e64d6e46b579ca56039a82374012ae",
+			"ParentID": "a23ea1724687cb4bbdeb4c8ba5c16c1c"
 		},
 		{
-			"ID": "ffb0b16b44696dd85be95eb5a506e0c7",
-			"TypeName": "Game.Trap",
+			"ID": "e84538c8466bd77540be9f94502249a1",
+			"PrefabID": "18285ba34c0ec4934165fe93ce815280",
+			"PrefabObjectID": "30544cf7497de3b259d718a8615a0f75",
 			"ParentID": "a35379924a6f1dba5831e59d2e729871",
 			"V": {
+	"ColliderTrigger": "a35379924a6f1dba5831e59d2e729871",
 	"hit": {
 		"Damage": 0.0,
 		"Force": 0.0,
 		"Kind": 0,
 		"Effect": {
-			"objectHolder": {
-				"$type": "Game.PandemoniumEffect, Game.CSharp",
-				"Name": null,
-				"Duration": 0.0,
-				"Targets": 0
-			},
-			"refHolder": null
+			"objectHolder": null,
+			"refHolder": "3be1bf354dc541c227f3f8aa7f85aad9"
 		}
 	},
 	"Actor": "a35379924a6f1dba5831e59d2e729871",
-	"Parent": "a35379924a6f1dba5831e59d2e729871",
-	"OrderInParent": 0
+	"Parent": "a35379924a6f1dba5831e59d2e729871"
+}
+		},
+		{
+			"ID": "3be1bf354dc541c227f3f8aa7f85aad9",
+			"PrefabID": "18285ba34c0ec4934165fe93ce815280",
+			"PrefabObjectID": "e5336b874ebbde9ffcbb869424bbc407",
+			"ParentID": "a35379924a6f1dba5831e59d2e729871",
+			"V": {
+	"Actor": "a35379924a6f1dba5831e59d2e729871",
+	"Parent": "a35379924a6f1dba5831e59d2e729871"
 }
 		}
 	]

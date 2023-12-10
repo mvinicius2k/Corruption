@@ -1,6 +1,6 @@
 ﻿using FlaxEngine;
 using System;
-
+using System.ComponentModel;
 
 namespace Game;
 
@@ -18,14 +18,15 @@ public interface IMutableScript
     public object ObjectHolder { get; }
     public void Refresh();
     public void Dispose();
+    public void SetScriptAsNull();
 }
 
 
 public struct MutableScript<T> : IMutableScript
 {
-    [EditorDisplay(name: "Value")]
-    public object objectHolder;
-    [Serialize]
+    [EditorDisplay(name: "Value"), ShowInEditor, Serialize]
+    private object objectHolder;
+    [Serialize, DefaultValue(null)]
     private FlaxEngine.Object refHolder;
     private Type typeImplementor;
 
@@ -58,6 +59,7 @@ public struct MutableScript<T> : IMutableScript
 
     public bool TrySetValue<T1>(T1 value)
     {
+        
         if (value is T cast)
         {
             Value = cast;
@@ -82,6 +84,8 @@ public struct MutableScript<T> : IMutableScript
         refHolder = null;
     }
 
+    public void SetScriptAsNull()
+        => refHolder = null;
 
     [NoSerialize]
     public T Value
@@ -109,67 +113,6 @@ public struct MutableScript<T> : IMutableScript
 
     public object ObjectHolder { get => objectHolder; }
 
-
-
-    //public class Mutable<T>
-    //{
-    //    public object ObjectHolder { get; set; }
-    //    public FlaxEngine.Object RefHolder { get; set; }
-    //    [NoSerialize]
-    //    private Type implementor;
-    //    public Type Implementor
-    //    {
-    //        get
-    //        {
-
-    //            return implementor ?? ObjectHolder?.GetType() ?? RefHolder?.GetType();
-    //        }
-    //    }
-    //    public void SetImplementor<U>() where U : T
-    //    {
-    //        implementor = typeof(U);
-    //    }
-    //    public bool TrySetImplementor(Type type)
-    //    {
-    //        if (type.IsAssignableTo(typeof(T)))
-    //        {
-    //            implementor = type;
-    //            return true;
-    //        }
-    //        else
-    //        {
-    //            Debug.LogWarning($"{type.FullName} is not child of {type.FullName}");
-    //            return false;
-    //        }
-
-    //    }
-
-    //    [Serialize, ShowInEditor]
-    //    public T Get
-    //    {
-    //        get
-    //        {
-
-    //            if (RefHolder is T c)
-    //            {
-    //                return c;
-    //            }
-    //            else
-    //            {
-    //                return (T)ObjectHolder;
-    //            }
-    //        }
-    //        set
-    //        {
-    //            if (value is FlaxEngine.Object castedValue && value is T)
-    //                RefHolder = castedValue;
-    //            else
-    //                ObjectHolder = value;
-
-    //        }
-    //    }
-
-    //}
 
 
 

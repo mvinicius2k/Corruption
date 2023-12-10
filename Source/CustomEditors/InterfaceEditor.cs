@@ -15,25 +15,16 @@ using static FlaxEditor.GUI.ItemsListContextMenu;
 namespace CustomEditors
 {
     [CustomEditor(typeof(MutableScript<>)), DefaultEditor]
-    public class IEffectEditor : GenericEditor
+    public class InterfaceEditor : GenericEditor
     {
 
         private IMutableScript mutable;
-        //protected override void SpawnProperty(LayoutElementsContainer itemLayout, ValueContainer itemValues, ItemInfo item)
-        //{
 
-        //    if(Values != null && Values.GetType() == typeof(MutableScript<>))
-        //    {
-
-
-        //    }
-        //    base.SpawnProperty(itemLayout, itemValues, item);
-        //}
         public override void Initialize(LayoutElementsContainer layout)
         {
             mutable = (IMutableScript) Values[0];
             mutable?.Refresh();
-            //
+            Debug.Log("init");
             var lb = layout.AddPropertyItem(mutable?.TypeImplementor?.Name ?? "Instance");
             var btn = layout.Button("Select Instance");
             lb.AddElement(btn);
@@ -41,34 +32,28 @@ namespace CustomEditors
             if (mutable == null || mutable.TypeImplementor == null)
             {
 
-                
-                //btn.Button.Clicked += () =>
-                //{
-                //    var init = new MutableScript<IEffect>(typeof(SpeedEffect));
-                //    init.Value = new SpeedEffect();
-                //    SetValue(init);
-
-                //};
+               
                 return;
 
             }
             else
             {
-                
-                //if (!mutable.Initialized)
-                //{
+                //
                 if (mutable.IsScript)
                 {
                     var custom = layout.Custom<FlaxObjectRefPickerControl>("Referencia");
                     custom.CustomControl.Type = new ScriptType(mutable.TypeImplementor);
-                    Debug.Log(mutable.RefHolder?.ToString() ?? "null");
                     custom.CustomControl.Value = mutable.RefHolder;
                     custom.CustomControl.ValueChanged += () =>
                     {
-                        //Debug.Log("Alterado");
+
+                        if (custom.CustomControl.Value == null)
+                            mutable.SetScriptAsNull();
+
 
                         mutable.TrySetValue((IEffect)custom.CustomControl.Value);
                         SetValue(mutable);
+                        RebuildLayoutOnRefresh();
                     };
                     return;
 
@@ -79,7 +64,7 @@ namespace CustomEditors
                 {
 
 
-
+                    
                     base.Initialize(layout);
 
                     return;
@@ -88,38 +73,6 @@ namespace CustomEditors
 
             }
 
-            //if (Values != null && Values[0] != null)
-            //{
-            //    var right = Values[0].GetType();
-            //    var isScript = typeof(MutableScript<IEffect>) == right;
-            //    var values = Values[0] as MutableScript<IEffect>;
-            //    var mut = Values[0] as Mutable<IEffect>;
-            //    if (values.IsScript)
-            //    {
-            //        Debug.Log("Prop");
-            //        var custom = layout.Custom<FlaxObjectRefPickerControl>("Referencia");
-            //        custom.CustomControl.Type = new ScriptType(typeof(TailEffect));
-            //        custom.CustomControl.ValueChanged += () =>
-            //        {
-            //            Debug.Log("Alterado");
-
-            //            mut.Value = (IEffect)custom.CustomControl.Value;
-            //            SetValue(mut);
-            //        };
-            //    }
-            //    else
-            //    {
-            //        mut.Value = new SpeedEffect();
-            //        Values[0] = mut;
-            //        Debug.Log("ALterando obj");
-            //        SetValue(mut);
-            //        base.Initialize(layout);
-            //    }
-
-            //}
-            //else
-
-            base.Initialize(layout);
 
         }
         public Type DeclaredGeneric => Values.Type.Type.GenericTypeArguments[0];
@@ -132,17 +85,44 @@ namespace CustomEditors
             window.OnTypeChoosed += OnChoosedType;
 
         }
+        protected override bool OnDirty(CustomEditor editor, object value, object token = null)
+        {
+            Debug.Log("Dirty");
+            return base.OnDirty(editor, value, token);
+            
+        }
+
+        protected override void OnUnDirty()
+        {
+            
+            
+            //Necessário para atualizar a UI quando a troca de valores não for entre scripts
+            if (!mutable.IsScript)
+            {
+                if (ParentEditor != null)
+                    ParentEditor.RebuildLayout();
+                else
+                    RebuildLayout();
+
+            }
+            base.OnUnDirty();
+        }
 
         private void OnChoosedType(Type choosedType)
         {
+            
             //Criando instância mutable
             if (mutable == null)
             {
                 mutable = (IMutableScript)CreateInstance();
             }
+            else if (mutable.TypeImplementor == choosedType)
+            {
+                return;
+            }
             else
             {
-
+                
                 mutable?.Dispose();
             }
 
@@ -150,17 +130,24 @@ namespace CustomEditors
             Debug.Log($"Tipo {choosedType.Name}");
 
             
-            mutable.TrySetImplementor(choosedType, true);
-
+            var res = mutable.TrySetImplementor(choosedType, true);
+            
             SetValue(mutable);
-
             RebuildLayoutOnRefresh();
             
+
+
             //RebuildLayout(); //Por algum motivo, apaga tudo
 
-            //var stype = new ScriptType(type);
+            
         }
-
+        public override void Refresh()
+        {
+            base.Refresh();
+            if (mutable == null)
+                return;
+            
+        }
         private object CreateInstance()
         {
             var mutableType = typeof(MutableScript<>);
