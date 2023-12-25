@@ -28,6 +28,12 @@
 }
 		},
 		{
+			"ID": "b99d779c4d7307b7c341bfb37bf8e1a2",
+			"TypeName": "FlaxEngine.MissingScript",
+			"ParentID": "74a68a984824b4510d12589f199ad68f",
+			"Data": "{\n\t\"ID\": \"a23ea1724687cb4bbdeb4c8ba5c16c1c\",\n\t\"PrefabID\": \"18285ba34c0ec4934165fe93ce815280\",\n\t\"PrefabObjectID\": \"1ee4219b416de8e57addcd8504b45423\",\n\t\"ParentID\": \"74a68a984824b4510d12589f199ad68f\",\n\t\"Transform\": {\n\t\t\"Translation\": {\n\t\t\t\"X\": 434.2215881347656,\n\t\t\t\"Y\": 62.35668182373047,\n\t\t\t\"Z\": -594.34423828125\n\t\t}\n\t},\n\t\"Buffer\": {\n\t\t\"Entries\": [\n\t\t\t{}\n\t\t]\n\t}\n}"
+		},
+		{
 			"ID": "28553d634087c67c711ebd96080482aa",
 			"TypeName": "FlaxEngine.EmptyActor",
 			"ParentID": "74a68a984824b4510d12589f199ad68f",
@@ -162,6 +168,10 @@
 	"JumpForce": {
 		"BaseValue": 80000.0
 	},
+	"XFactor": {
+		"BaseValue": 0.1
+	},
+	"ZFactor": {},
 	"RigidBody": "c32a84074f2926075db86e895491df60",
 	"JumpAirForceMultiplicator": 0.8,
 	"JumpAirDuration": 0.1,
@@ -211,6 +221,33 @@
 	"Actor": "c32a84074f2926075db86e895491df60",
 	"Parent": "c32a84074f2926075db86e895491df60",
 	"OrderInParent": 4
+}
+		},
+		{
+			"ID": "7e93a642483554d20ac9d0aaed811418",
+			"TypeName": "Game.Dash",
+			"ParentID": "c32a84074f2926075db86e895491df60",
+			"V": {
+	"Entity": "da46753045c7ec0ea4f7dcb7c990d365",
+	"Duration": 0.3,
+	"Speed": {
+		"Value": 100000.0,
+		"Composition": 1
+	},
+	"Actor": "c32a84074f2926075db86e895491df60",
+	"Parent": "c32a84074f2926075db86e895491df60",
+	"OrderInParent": 5
+}
+		},
+		{
+			"ID": "c14cd0674a3de50b3a96038540c98e71",
+			"TypeName": "Game.DashController",
+			"ParentID": "c32a84074f2926075db86e895491df60",
+			"V": {
+	"Dash": "7e93a642483554d20ac9d0aaed811418",
+	"Actor": "c32a84074f2926075db86e895491df60",
+	"Parent": "c32a84074f2926075db86e895491df60",
+	"OrderInParent": 6
 }
 		},
 		{
@@ -726,60 +763,6 @@
 	"Actor": "3bf95ea74d4d7d614fee268b7b4c63c3",
 	"Parent": "3bf95ea74d4d7d614fee268b7b4c63c3",
 	"OrderInParent": 1
-}
-		},
-		{
-			"ID": "a23ea1724687cb4bbdeb4c8ba5c16c1c",
-			"PrefabID": "18285ba34c0ec4934165fe93ce815280",
-			"PrefabObjectID": "1ee4219b416de8e57addcd8504b45423",
-			"ParentID": "74a68a984824b4510d12589f199ad68f",
-			"Transform": {
-				"Translation": {
-					"X": 434.2215881347656,
-					"Y": 62.35668182373047,
-					"Z": -594.34423828125
-				}
-			},
-			"Buffer": {
-				"Entries": [
-					{}
-				]
-			}
-		},
-		{
-			"ID": "a35379924a6f1dba5831e59d2e729871",
-			"PrefabID": "18285ba34c0ec4934165fe93ce815280",
-			"PrefabObjectID": "a4e64d6e46b579ca56039a82374012ae",
-			"ParentID": "a23ea1724687cb4bbdeb4c8ba5c16c1c"
-		},
-		{
-			"ID": "e84538c8466bd77540be9f94502249a1",
-			"PrefabID": "18285ba34c0ec4934165fe93ce815280",
-			"PrefabObjectID": "30544cf7497de3b259d718a8615a0f75",
-			"ParentID": "a35379924a6f1dba5831e59d2e729871",
-			"V": {
-	"ColliderTrigger": "a35379924a6f1dba5831e59d2e729871",
-	"hit": {
-		"Damage": 0.0,
-		"Force": 0.0,
-		"Kind": 0,
-		"Effect": {
-			"objectHolder": null,
-			"refHolder": "3be1bf354dc541c227f3f8aa7f85aad9"
-		}
-	},
-	"Actor": "a35379924a6f1dba5831e59d2e729871",
-	"Parent": "a35379924a6f1dba5831e59d2e729871"
-}
-		},
-		{
-			"ID": "3be1bf354dc541c227f3f8aa7f85aad9",
-			"PrefabID": "18285ba34c0ec4934165fe93ce815280",
-			"PrefabObjectID": "e5336b874ebbde9ffcbb869424bbc407",
-			"ParentID": "a35379924a6f1dba5831e59d2e729871",
-			"V": {
-	"Actor": "a35379924a6f1dba5831e59d2e729871",
-	"Parent": "a35379924a6f1dba5831e59d2e729871"
 }
 		}
 	]

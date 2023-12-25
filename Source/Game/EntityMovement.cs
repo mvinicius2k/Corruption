@@ -12,8 +12,13 @@ namespace Game
     {
         public PipedFloat Speed = new PipedFloat { BaseValue = 20000f } ;
         public PipedFloat JumpForce = new PipedFloat { BaseValue = 10000f };
-        
 
+        /// <summary>
+        /// Multiplicará pelo vetor de movimento referente ao X.
+        /// Quanto mais próximo de zero, mais lento serão os movimentos para virar o frontal para o lado
+        /// </summary>
+        public PipedFloat XFactor = new PipedFloat { BaseValue = 1f };
+        public PipedFloat ZFactor = new PipedFloat { BaseValue = 1f };
 
 
         public float TargetFront => Mathf.Atan2(MoveVector.X, MoveVector.Z) * Mathf.RadiansToDegrees;
@@ -27,8 +32,17 @@ namespace Game
 
         private float jumpAirDurationCount = 0f;
         private bool Jumping;
-        public Vector3 MoveVector;
-        Transform transform;
+        
+        private Vector3 moveVector;
+        public Vector3 MoveVector
+        {
+            get => new Vector3 { 
+                X = moveVector.X * XFactor.TotalValue,
+                Y = moveVector.Y,
+                Z = moveVector.Z * ZFactor.TotalValue
+            };
+            set => moveVector = value;
+        }
 
         public void Jump()
         {

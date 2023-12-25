@@ -10,6 +10,9 @@ namespace Game
     public class Entity : Script
     {
         public EntityMovement EntityMovement;
+
+        public float CurrentLife = 1000f;
+        public float MaxLife = 1000f;
         /// <inheritdoc/>
         public override void OnStart()
         {

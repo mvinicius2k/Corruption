@@ -11,6 +11,7 @@ public static class Values
     public const string InputJump = "Jump";
     public const string InputMouseX = "Mouse X";
     public const string InputMouseY = "Mouse Y";
+    public const string InputDash = "Dash";
 
     public const string TagCamera = "Camera";
 

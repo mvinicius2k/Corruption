@@ -18,9 +18,7 @@ namespace Game
     public class EntityDefense : Script
     {
         public bool Blind;
-        [DefaultValue(1000f)]
-        public float CurrentLife = 1000f;
-        public float MaxLife = 1000f;
+
         public Entity Entity;
 
 
@@ -33,7 +31,7 @@ namespace Game
             if (Blind)
                 return;
 
-            CurrentLife -= hit.Damage;
+            Entity.CurrentLife -= hit.Damage;
 
 
             if (hit.Effect.HasValue)
