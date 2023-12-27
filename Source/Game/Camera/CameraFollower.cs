@@ -8,6 +8,7 @@ using FlaxEngine;
 namespace Game;
 
 
+[Obsolete]
 public class CameraFollower : Script
 {
 

@@ -148,9 +148,9 @@
 			"Name": "Player",
 			"Transform": {
 				"Translation": {
-					"X": 0.0,
+					"X": 490.6368408203125,
 					"Y": 88.109619140625,
-					"Z": 0.0
+					"Z": -914.439697265625
 				}
 			},
 			"OverrideMass": true,
@@ -168,9 +168,7 @@
 	"JumpForce": {
 		"BaseValue": 80000.0
 	},
-	"XFactor": {
-		"BaseValue": 0.1
-	},
+	"XFactor": {},
 	"ZFactor": {},
 	"RigidBody": "c32a84074f2926075db86e895491df60",
 	"JumpAirForceMultiplicator": 0.8,
@@ -309,41 +307,6 @@
 			"ViewDistance": 490.0,
 			"VolumetricScatteringIntensity": 0.7100000381469727,
 			"SourceRadius": 7.359999656677246
-		},
-		{
-			"ID": "83904203407b37eb31ce1f8cf7e4ea5f",
-			"TypeName": "FlaxEngine.EmptyActor",
-			"ParentID": "74a68a984824b4510d12589f199ad68f",
-			"Name": "CameraSlot",
-			"Transform": {
-				"Translation": {
-					"X": 0.0,
-					"Y": 151.1393585205078,
-					"Z": -408.5780334472656
-				}
-			}
-		},
-		{
-			"ID": "6dfee8c14ffa06fa627dc19a1fbc1e0c",
-			"TypeName": "Game.CameraFollower",
-			"ParentID": "83904203407b37eb31ce1f8cf7e4ea5f",
-			"V": {
-	"Target": "c32a84074f2926075db86e895491df60",
-	"LookTo": "c32a84074f2926075db86e895491df60",
-	"Speed": 0.5,
-	"CameraRadius": 10.0,
-	"Actor": "83904203407b37eb31ce1f8cf7e4ea5f",
-	"Parent": "83904203407b37eb31ce1f8cf7e4ea5f",
-	"OrderInParent": 0
-}
-		},
-		{
-			"ID": "eadfa58142b2c104eb2bda9f42d730a8",
-			"TypeName": "FlaxEngine.Camera",
-			"ParentID": "83904203407b37eb31ce1f8cf7e4ea5f",
-			"Name": "Camera",
-			"Near": 4.0,
-			"Far": 4000.0
 		},
 		{
 			"ID": "eef5c6b142781dc7deb9c3bfe5d71629",
@@ -764,6 +727,335 @@
 	"Parent": "3bf95ea74d4d7d614fee268b7b4c63c3",
 	"OrderInParent": 1
 }
+		},
+		{
+			"ID": "6e1f62df4a7b9089ffbafb9811e068e9",
+			"TypeName": "FlaxEngine.EmptyActor",
+			"ParentID": "74a68a984824b4510d12589f199ad68f",
+			"Name": "CameraSlot",
+			"Transform": {
+				"Translation": {
+					"X": 469.21710205078127,
+					"Y": 280.39886474609377,
+					"Z": -1463.960693359375
+				}
+			}
+		},
+		{
+			"ID": "a83218c243e772b4521f2aa5dfa8b544",
+			"TypeName": "Game.CameraArm",
+			"ParentID": "6e1f62df4a7b9089ffbafb9811e068e9",
+			"V": {
+	"Target": "c32a84074f2926075db86e895491df60",
+	"Speed": 0.5,
+	"CameraRadius": 10.0,
+	"MaxAngle": 150.0,
+	"Enabled": false,
+	"Actor": "6e1f62df4a7b9089ffbafb9811e068e9",
+	"Parent": "6e1f62df4a7b9089ffbafb9811e068e9",
+	"OrderInParent": 0
+},
+			"Enabled": false
+		},
+		{
+			"ID": "68aa74df48911f8a191b0e974653bc90",
+			"TypeName": "Game.PathCamera",
+			"ParentID": "6e1f62df4a7b9089ffbafb9811e068e9",
+			"V": {
+	"SplinePath": "bc98485249ce15c48c0e009c77059f8e",
+	"Target": "c32a84074f2926075db86e895491df60",
+	"Speed": 20.0,
+	"Actor": "6e1f62df4a7b9089ffbafb9811e068e9",
+	"Parent": "6e1f62df4a7b9089ffbafb9811e068e9",
+	"OrderInParent": 1
+}
+		},
+		{
+			"ID": "5ee657f949d16c6caec21d84292890cd",
+			"TypeName": "FlaxEngine.Camera",
+			"ParentID": "6e1f62df4a7b9089ffbafb9811e068e9",
+			"Name": "Camera"
+		},
+		{
+			"ID": "bc98485249ce15c48c0e009c77059f8e",
+			"TypeName": "FlaxEngine.Spline",
+			"ParentID": "74a68a984824b4510d12589f199ad68f",
+			"Name": "Spline",
+			"Transform": {
+				"Translation": {
+					"X": -419.401123046875,
+					"Y": 435.145751953125,
+					"Z": -1131.6510009765626
+				}
+			},
+			"Curve": {
+				"Keyframes": [
+					{
+						"Time": 0.0,
+						"Value": {
+							"Translation": {
+								"X": 20.0,
+								"Y": 0.0,
+								"Z": 0.0
+							}
+						},
+						"TangentIn": {
+							"Translation": {
+								"X": -155.60964965820313,
+								"Y": 0.0,
+								"Z": 0.0
+							}
+						},
+						"TangentOut": {
+							"Translation": {
+								"X": 155.60964965820313,
+								"Y": 0.0,
+								"Z": 0.0
+							}
+						}
+					},
+					{
+						"Time": 1.0,
+						"Value": {
+							"Translation": {
+								"X": 175.60964965820313,
+								"Y": 0.0,
+								"Z": 0.0
+							}
+						},
+						"TangentIn": {
+							"Translation": {
+								"X": -172.15940856933595,
+								"Y": 0.0,
+								"Z": 0.0
+							}
+						},
+						"TangentOut": {
+							"Translation": {
+								"X": 172.15940856933595,
+								"Y": 0.0,
+								"Z": 0.0
+							}
+						}
+					},
+					{
+						"Time": 2.0,
+						"Value": {
+							"Translation": {
+								"X": 364.31878662109377,
+								"Y": 0.0,
+								"Z": 0.0
+							}
+						},
+						"TangentIn": {
+							"Translation": {
+								"X": -207.25363159179688,
+								"Y": 0.0,
+								"Z": 0.0
+							}
+						},
+						"TangentOut": {
+							"Translation": {
+								"X": 207.25363159179688,
+								"Y": 0.0,
+								"Z": 0.0
+							}
+						}
+					},
+					{
+						"Time": 3.0,
+						"Value": {
+							"Translation": {
+								"X": 590.1168823242188,
+								"Y": 0.0,
+								"Z": 0.0
+							}
+						},
+						"TangentIn": {
+							"Translation": {
+								"X": -279.7040710449219,
+								"Y": 0.0,
+								"Z": 0.0
+							}
+						},
+						"TangentOut": {
+							"Translation": {
+								"X": 279.7040710449219,
+								"Y": 0.0,
+								"Z": 0.0
+							}
+						}
+					},
+					{
+						"Time": 4.0,
+						"Value": {
+							"Translation": {
+								"X": 923.7269287109375,
+								"Y": 0.0,
+								"Z": 0.0
+							}
+						},
+						"TangentIn": {
+							"Translation": {
+								"X": -352.89617919921877,
+								"Y": 0.0,
+								"Z": 0.0
+							}
+						},
+						"TangentOut": {
+							"Translation": {
+								"X": 352.89617919921877,
+								"Y": 0.0,
+								"Z": 0.0
+							}
+						}
+					},
+					{
+						"Time": 5.0,
+						"Value": {
+							"Translation": {
+								"X": 1295.9093017578126,
+								"Y": 0.0,
+								"Z": 0.0
+							}
+						},
+						"TangentIn": {
+							"Translation": {
+								"X": -332.22686767578127,
+								"Y": 0.0,
+								"Z": 0.0
+							}
+						},
+						"TangentOut": {
+							"Translation": {
+								"X": 332.22686767578127,
+								"Y": 0.0,
+								"Z": 0.0
+							}
+						}
+					},
+					{
+						"Time": 6.0,
+						"Value": {
+							"Translation": {
+								"X": 1588.1806640625,
+								"Y": 0.0,
+								"Z": 0.0
+							}
+						},
+						"TangentIn": {
+							"Translation": {
+								"X": -292.2713623046875,
+								"Y": 0.0,
+								"Z": 0.0
+							}
+						},
+						"TangentOut": {
+							"Translation": {
+								"X": 292.2713623046875,
+								"Y": 0.0,
+								"Z": 0.0
+							}
+						}
+					},
+					{
+						"Time": 7.0,
+						"Value": {
+							"Translation": {
+								"X": 1962.4033203125,
+								"Y": 0.0,
+								"Z": 0.0
+							}
+						},
+						"TangentIn": {},
+						"TangentOut": {}
+					},
+					{
+						"Time": 8.0,
+						"Value": {
+							"Translation": {
+								"X": 2286.962158203125,
+								"Y": 0.0,
+								"Z": 298.6046142578125
+							}
+						},
+						"TangentIn": {},
+						"TangentOut": {}
+					},
+					{
+						"Time": 9.0,
+						"Value": {
+							"Translation": {
+								"X": 2469.902587890625,
+								"Y": 0.0,
+								"Z": 937.3305053710938
+							}
+						},
+						"TangentIn": {},
+						"TangentOut": {}
+					},
+					{
+						"Time": 10.0,
+						"Value": {
+							"Translation": {
+								"X": 2412.943359375,
+								"Y": 0.0,
+								"Z": 1594.1253662109376
+							}
+						},
+						"TangentIn": {},
+						"TangentOut": {}
+					},
+					{
+						"Time": 11.0,
+						"Value": {
+							"Translation": {
+								"X": 2030.6417236328126,
+								"Y": 0.0,
+								"Z": 2144.357666015625
+							}
+						},
+						"TangentIn": {},
+						"TangentOut": {}
+					},
+					{
+						"Time": 12.0,
+						"Value": {
+							"Translation": {
+								"X": 1441.3095703125,
+								"Y": 0.0,
+								"Z": 2635.685302734375
+							}
+						},
+						"TangentIn": {},
+						"TangentOut": {}
+					},
+					{
+						"Time": 13.0,
+						"Value": {
+							"Translation": {
+								"X": 641.4740600585938,
+								"Y": 0.0,
+								"Z": 2658.176513671875
+							}
+						},
+						"TangentIn": {},
+						"TangentOut": {}
+					},
+					{
+						"Time": 14.0,
+						"Value": {
+							"Translation": {
+								"X": -147.82196044921876,
+								"Y": 0.0,
+								"Z": 2387.888427734375
+							}
+						},
+						"TangentIn": {},
+						"TangentOut": {}
+					}
+				]
+			}
 		}
 	]
 }
