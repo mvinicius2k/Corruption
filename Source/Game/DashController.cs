@@ -33,21 +33,19 @@ public class DashController : Script
     {
 
         bufferCount = BufferDuration;
-        Dash.Entity.EntityMovement.XFactor.Multiplicators.Add(0.5f);
-        Dash.Entity.EntityMovement.ZFactor.Multiplicators.Add(0f);
+        //Dash.Entity.EntityMovement.XFactor.Multiplicators.Add(0.5f);
+        //Dash.Entity.EntityMovement.ZFactor.Multiplicators.Add(0f);
 
     }
     public void OnDashOut()
     {
         bufferCount = 0f;
-        Dash.Entity.EntityMovement.XFactor.Multiplicators.Remove(0.5f);
-        Dash.Entity.EntityMovement.ZFactor.Multiplicators.Remove(0f);
+        //Dash.Entity.EntityMovement.XFactor.Multiplicators.Remove(0.5f);
+        //Dash.Entity.EntityMovement.ZFactor.Multiplicators.Remove(0f);
     }
 
     public override void OnUpdate()
     {
-
-
 
         if(Input.GetActionState(Values.InputDash) == InputActionState.Press)
         {

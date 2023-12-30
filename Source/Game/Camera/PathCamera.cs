@@ -7,10 +7,7 @@ using FlaxEngine;
 namespace Game;
 
 
-public interface ICameraSlot
-{
 
-}
 
 
 /// <summary>

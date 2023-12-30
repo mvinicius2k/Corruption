@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using FlaxEngine;
 using FlaxEngine.GUI;
+using Newtonsoft.Json.Linq;
 
 namespace Game;
 
@@ -17,22 +18,32 @@ public class Test : Script
 {
     
     public MutableScript<IEffect> Effect;
-
+    public ComposeValue<Vector2> Input = new ComposeValue<Vector2> { BaseValue = Vector2.One };
 
     public Dictionary<string, MutableScript<IEffect>> dict;
     public override void OnStart()
     {
 
+        Input.Functions.Add(new FunctionNode<Vector2>
+        {
+            Order = 5,
+            Function = (input) => Vector2.Zero
+        });
+        Input.Functions.Add(new FunctionNode<Vector2>
+        {
+            Order = 0,
+            Function = (input) => input + Vector2.One
+        });
+
+
 
     }
-    [EditorAction]
-    public void Set()
-    {
+    //
 
-        //Effect.TrySetImplementor(typeof(TailEffect));
-        //Effect.refHolder = Actor.GetScript<TailEffect>();
-    
-    
+    [EditorAction]
+    public void Preview()
+    {
+        Debug.Log(Input.Value);
     }
 
 

@@ -12,7 +12,7 @@ namespace Game;
 /// Câmera clássica em terceira pessoa olhando para o alvo. 
 /// A câmera em si precisa ser um filho deste objeto, caso não haja, uma será criada automaticamente
 /// </summary>
-public class CameraArm : Script
+public class CameraArm : Script, ICameraSlot
 {
 
     public Actor Target;

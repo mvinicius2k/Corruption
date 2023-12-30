@@ -10,19 +10,17 @@ namespace Game
     /// </summary>
     public class EntityMovement : Script, IMoveUpdater
     {
-        public PipedFloat Speed = new PipedFloat { BaseValue = 20000f } ;
-        public PipedFloat JumpForce = new PipedFloat { BaseValue = 10000f };
+        [ShowInEditor, Serialize]
+        private PipedFloat speed = new PipedFloat { BaseValue = 20000f } ;
+        [ShowInEditor, Serialize]
+        private PipedFloat jumpForce = new PipedFloat { BaseValue = 10000f };
 
-        /// <summary>
-        /// Multiplicará pelo vetor de movimento referente ao X.
-        /// Quanto mais próximo de zero, mais lento serão os movimentos para virar o frontal para o lado
-        /// </summary>
-        public PipedFloat XFactor = new PipedFloat { BaseValue = 1f };
-        public PipedFloat ZFactor = new PipedFloat { BaseValue = 1f };
+        public PipedFloat JumpForce => jumpForce;
+        public PipedFloat Speed => speed;
 
 
-        public float TargetFront => Mathf.Atan2(MoveVector.X, MoveVector.Z) * Mathf.RadiansToDegrees;
-        public bool PauseFront => MoveVector.IsZero;
+        public float TargetFront => Mathf.Atan2(MoveVector.Value.X, MoveVector.Value.Z) * Mathf.RadiansToDegrees;
+        public bool PauseFront => MoveVector.Value.IsZero;
 
         //public Vector2 Direction;
         public RigidBody RigidBody;
@@ -33,16 +31,10 @@ namespace Game
         private float jumpAirDurationCount = 0f;
         private bool Jumping;
         
-        private Vector3 moveVector;
-        public Vector3 MoveVector
-        {
-            get => new Vector3 { 
-                X = moveVector.X * XFactor.TotalValue,
-                Y = moveVector.Y,
-                Z = moveVector.Z * ZFactor.TotalValue
-            };
-            set => moveVector = value;
-        }
+
+        private ComposeValue<Vector3> moveVector = new();
+        public ComposeValue<Vector3> MoveVector => moveVector;
+        
 
         public void Jump()
         {
@@ -79,13 +71,13 @@ namespace Game
 
             RigidBody.LinearVelocity = new Vector3
             {
-                X = MoveVector.X * speedDelta,
+                X = MoveVector.Value.X * speedDelta,
                 Y = RigidBody.LinearVelocity.Y,
-                Z = MoveVector.Z * speedDelta
+                Z = MoveVector.Value.Z * speedDelta
             };
 
 
-            if (MoveVector.IsZero)
+            if (MoveVector.Value.IsZero)
                 RigidBody.LinearVelocity = new Vector3 { Y = RigidBody.LinearVelocity.Y, };
         }
 

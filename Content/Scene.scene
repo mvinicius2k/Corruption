@@ -164,12 +164,12 @@
 			"TypeName": "Game.EntityMovement",
 			"ParentID": "c32a84074f2926075db86e895491df60",
 			"V": {
-	"Speed": {},
-	"JumpForce": {
-		"BaseValue": 80000.0
+	"speed": {
+		"BaseValue": 50000.0
 	},
-	"XFactor": {},
-	"ZFactor": {},
+	"jumpForce": {
+		"BaseValue": 20000.0
+	},
 	"RigidBody": "c32a84074f2926075db86e895491df60",
 	"JumpAirForceMultiplicator": 0.8,
 	"JumpAirDuration": 0.1,
@@ -713,6 +713,7 @@
 			"TypeName": "Game.Test",
 			"ParentID": "3bf95ea74d4d7d614fee268b7b4c63c3",
 			"V": {
+	"Input": {},
 	"dict": {
 		"Key": {
 			"objectHolder": null,
@@ -750,12 +751,10 @@
 	"Speed": 0.5,
 	"CameraRadius": 10.0,
 	"MaxAngle": 150.0,
-	"Enabled": false,
 	"Actor": "6e1f62df4a7b9089ffbafb9811e068e9",
 	"Parent": "6e1f62df4a7b9089ffbafb9811e068e9",
 	"OrderInParent": 0
-},
-			"Enabled": false
+}
 		},
 		{
 			"ID": "68aa74df48911f8a191b0e974653bc90",
@@ -764,11 +763,12 @@
 			"V": {
 	"SplinePath": "bc98485249ce15c48c0e009c77059f8e",
 	"Target": "c32a84074f2926075db86e895491df60",
-	"Speed": 20.0,
+	"Enabled": false,
 	"Actor": "6e1f62df4a7b9089ffbafb9811e068e9",
 	"Parent": "6e1f62df4a7b9089ffbafb9811e068e9",
 	"OrderInParent": 1
-}
+},
+			"Enabled": false
 		},
 		{
 			"ID": "5ee657f949d16c6caec21d84292890cd",
@@ -945,14 +945,14 @@
 						},
 						"TangentIn": {
 							"Translation": {
-								"X": -292.2713623046875,
+								"X": -333.2470703125,
 								"Y": 0.0,
 								"Z": 0.0
 							}
 						},
 						"TangentOut": {
 							"Translation": {
-								"X": 292.2713623046875,
+								"X": 333.2470703125,
 								"Y": 0.0,
 								"Z": 0.0
 							}
@@ -967,95 +967,34 @@
 								"Z": 0.0
 							}
 						},
-						"TangentIn": {},
-						"TangentOut": {}
-					},
-					{
-						"Time": 8.0,
-						"Value": {
+						"TangentIn": {
 							"Translation": {
-								"X": 2286.962158203125,
+								"X": -349.3907470703125,
 								"Y": 0.0,
-								"Z": 298.6046142578125
+								"Z": -149.30230712890626
 							}
 						},
-						"TangentIn": {},
-						"TangentOut": {}
-					},
-					{
-						"Time": 9.0,
-						"Value": {
+						"TangentOut": {
 							"Translation": {
-								"X": 2469.902587890625,
+								"X": 349.3907470703125,
 								"Y": 0.0,
-								"Z": 937.3305053710938
+								"Z": 149.30230712890626
 							}
-						},
-						"TangentIn": {},
-						"TangentOut": {}
-					},
-					{
-						"Time": 10.0,
-						"Value": {
-							"Translation": {
-								"X": 2412.943359375,
-								"Y": 0.0,
-								"Z": 1594.1253662109376
-							}
-						},
-						"TangentIn": {},
-						"TangentOut": {}
-					},
-					{
-						"Time": 11.0,
-						"Value": {
-							"Translation": {
-								"X": 2030.6417236328126,
-								"Y": 0.0,
-								"Z": 2144.357666015625
-							}
-						},
-						"TangentIn": {},
-						"TangentOut": {}
-					},
-					{
-						"Time": 12.0,
-						"Value": {
-							"Translation": {
-								"X": 1441.3095703125,
-								"Y": 0.0,
-								"Z": 2635.685302734375
-							}
-						},
-						"TangentIn": {},
-						"TangentOut": {}
-					},
-					{
-						"Time": 13.0,
-						"Value": {
-							"Translation": {
-								"X": 641.4740600585938,
-								"Y": 0.0,
-								"Z": 2658.176513671875
-							}
-						},
-						"TangentIn": {},
-						"TangentOut": {}
-					},
-					{
-						"Time": 14.0,
-						"Value": {
-							"Translation": {
-								"X": -147.82196044921876,
-								"Y": 0.0,
-								"Z": 2387.888427734375
-							}
-						},
-						"TangentIn": {},
-						"TangentOut": {}
+						}
 					}
 				]
 			}
+		},
+		{
+			"ID": "b7647baf4fcfed50d74cdc9f3b9730fc",
+			"TypeName": "Game.Test",
+			"ParentID": "bc98485249ce15c48c0e009c77059f8e",
+			"V": {
+	"Input": {},
+	"Actor": "bc98485249ce15c48c0e009c77059f8e",
+	"Parent": "bc98485249ce15c48c0e009c77059f8e",
+	"OrderInParent": 0
+}
 		}
 	]
 }

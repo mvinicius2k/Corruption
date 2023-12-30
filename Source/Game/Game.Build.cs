@@ -1,5 +1,6 @@
 using Flax.Build;
 using Flax.Build.NativeCpp;
+using System.IO;
 
 public class Game : GameModule
 {
@@ -18,6 +19,11 @@ public class Game : GameModule
         base.Setup(options);
 
         options.ScriptingAPI.IgnoreMissingDocumentationWarnings = true;
+
+        var dllsPath = Path.Combine(FolderPath, "..", "..", "Content", "DLLs");
+
+        options.ScriptingAPI.FileReferences.Add(Path.Combine(dllsPath, "DStruct.dll"));
+        //options.DependencyFiles.Add(Path.Combine(dllsPath, "DStruct.dll"));
 
         // Here you can modify the build options for your game module
         // To reference another module use: options.PublicDependencies.Add("Audio");
