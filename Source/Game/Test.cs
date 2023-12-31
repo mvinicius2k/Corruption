@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using FlaxEngine;
 using FlaxEngine.GUI;
+using Game;
 using Newtonsoft.Json.Linq;
 
 namespace Game;
@@ -19,7 +20,7 @@ public class Test : Script
     
     public MutableScript<IEffect> Effect;
     public ComposeValue<Vector2> Input = new ComposeValue<Vector2> { BaseValue = Vector2.One };
-
+    public MutableScript<IGroundDetector> Ground;
     public Dictionary<string, MutableScript<IEffect>> dict;
     public override void OnStart()
     {
@@ -80,4 +81,12 @@ public class Test : Script
     {
         // Here you can add code that needs to be called every frame
     }
+}
+
+public class Fast : IGroundDetector
+{
+    public string OPla;
+    public IObservable<bool> Grounded => throw new NotImplementedException();
+
+    public IObservable<bool> Sliding => throw new NotImplementedException();
 }

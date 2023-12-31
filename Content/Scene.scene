@@ -168,25 +168,14 @@
 		"BaseValue": 50000.0
 	},
 	"jumpForce": {
-		"BaseValue": 20000.0
+		"BaseValue": 80000.0
 	},
 	"RigidBody": "c32a84074f2926075db86e895491df60",
-	"JumpAirForceMultiplicator": 0.8,
-	"JumpAirDuration": 0.1,
+	"JumpAirForceMultiplicator": 0.5,
+	"JumpAirDuration": 30000.0,
 	"Actor": "c32a84074f2926075db86e895491df60",
 	"Parent": "c32a84074f2926075db86e895491df60",
 	"OrderInParent": 0
-}
-		},
-		{
-			"ID": "4d384207422720225db38fa5b396dc7a",
-			"TypeName": "Game.EntityMovementController",
-			"ParentID": "c32a84074f2926075db86e895491df60",
-			"V": {
-	"EntityMovement": "01daeee34f1314ba3c27c9a19533bdf2",
-	"Actor": "c32a84074f2926075db86e895491df60",
-	"Parent": "c32a84074f2926075db86e895491df60",
-	"OrderInParent": 1
 }
 		},
 		{
@@ -196,7 +185,7 @@
 			"V": {
 	"Actor": "c32a84074f2926075db86e895491df60",
 	"Parent": "c32a84074f2926075db86e895491df60",
-	"OrderInParent": 2
+	"OrderInParent": 1
 }
 		},
 		{
@@ -207,7 +196,7 @@
 	"Entity": "da46753045c7ec0ea4f7dcb7c990d365",
 	"Actor": "c32a84074f2926075db86e895491df60",
 	"Parent": "c32a84074f2926075db86e895491df60",
-	"OrderInParent": 3
+	"OrderInParent": 2
 }
 		},
 		{
@@ -218,7 +207,7 @@
 	"EntityMovement": "01daeee34f1314ba3c27c9a19533bdf2",
 	"Actor": "c32a84074f2926075db86e895491df60",
 	"Parent": "c32a84074f2926075db86e895491df60",
-	"OrderInParent": 4
+	"OrderInParent": 3
 }
 		},
 		{
@@ -234,18 +223,24 @@
 	},
 	"Actor": "c32a84074f2926075db86e895491df60",
 	"Parent": "c32a84074f2926075db86e895491df60",
-	"OrderInParent": 5
+	"OrderInParent": 4
 }
 		},
 		{
-			"ID": "c14cd0674a3de50b3a96038540c98e71",
-			"TypeName": "Game.DashController",
+			"ID": "00c3e0cd492acf2e4e420886177169e2",
+			"TypeName": "Game.GroundCubeDetector",
 			"ParentID": "c32a84074f2926075db86e895491df60",
 			"V": {
-	"Dash": "7e93a642483554d20ac9d0aaed811418",
+	"HalfExtends": {
+		"X": 50.0,
+		"Y": 7.0,
+		"Z": 50.0
+	},
+	"EntityMovement": "01daeee34f1314ba3c27c9a19533bdf2",
+	"Distance": 48.0,
 	"Actor": "c32a84074f2926075db86e895491df60",
 	"Parent": "c32a84074f2926075db86e895491df60",
-	"OrderInParent": 6
+	"OrderInParent": 5
 }
 		},
 		{
@@ -307,6 +302,34 @@
 			"ViewDistance": 490.0,
 			"VolumetricScatteringIntensity": 0.7100000381469727,
 			"SourceRadius": 7.359999656677246
+		},
+		{
+			"ID": "c79ba2b64629f1a145239b8e497bf253",
+			"TypeName": "FlaxEngine.EmptyActor",
+			"ParentID": "c32a84074f2926075db86e895491df60",
+			"Name": "Actions"
+		},
+		{
+			"ID": "5fef78524c9b30649b8992addd80f44e",
+			"TypeName": "Game.EntityMovementController",
+			"ParentID": "c79ba2b64629f1a145239b8e497bf253",
+			"V": {
+	"EntityMovement": "01daeee34f1314ba3c27c9a19533bdf2",
+	"Actor": "c79ba2b64629f1a145239b8e497bf253",
+	"Parent": "c79ba2b64629f1a145239b8e497bf253",
+	"OrderInParent": 0
+}
+		},
+		{
+			"ID": "f8d4f2f741206b3a01333286d0aa7b33",
+			"TypeName": "Game.DashController",
+			"ParentID": "c79ba2b64629f1a145239b8e497bf253",
+			"V": {
+	"Dash": "7e93a642483554d20ac9d0aaed811418",
+	"Actor": "c79ba2b64629f1a145239b8e497bf253",
+	"Parent": "c79ba2b64629f1a145239b8e497bf253",
+	"OrderInParent": 1
+}
 		},
 		{
 			"ID": "eef5c6b142781dc7deb9c3bfe5d71629",
@@ -567,15 +590,15 @@
 			"Name": "Floor 5",
 			"Transform": {
 				"Translation": {
-					"X": 2700.828125,
+					"X": 1141.4482421875,
 					"Y": 46.1156005859375,
-					"Z": -19.00515365600586
+					"Z": -1220.50830078125
 				},
 				"Orientation": {
-					"X": 0.0,
-					"Y": 0.3826834559440613,
-					"Z": 0.0,
-					"W": 0.9238795042037964
+					"X": 0.1773277372121811,
+					"Y": 0.33911874890327456,
+					"Z": 0.42810681462287905,
+					"W": 0.8187049627304077
 				},
 				"Scale": {
 					"X": 9.170000076293946,
@@ -688,45 +711,6 @@
 	"Actor": "d9b33f224ee3d2497c1573b54c7c4ccd",
 	"Parent": "d9b33f224ee3d2497c1573b54c7c4ccd",
 	"OrderInParent": 0
-}
-		},
-		{
-			"ID": "3bf95ea74d4d7d614fee268b7b4c63c3",
-			"TypeName": "FlaxEngine.EmptyActor",
-			"ParentID": "74a68a984824b4510d12589f199ad68f",
-			"Name": "EmptyActor"
-		},
-		{
-			"ID": "a3301b7d42c4855c142ee6b60da64b93",
-			"TypeName": "Game.TailEffect",
-			"ParentID": "3bf95ea74d4d7d614fee268b7b4c63c3",
-			"V": {
-	"Hello": 67,
-	"Name": "Olá",
-	"Actor": "3bf95ea74d4d7d614fee268b7b4c63c3",
-	"Parent": "3bf95ea74d4d7d614fee268b7b4c63c3",
-	"OrderInParent": 0
-}
-		},
-		{
-			"ID": "b4ebf247402da7238af016b9e104ebb3",
-			"TypeName": "Game.Test",
-			"ParentID": "3bf95ea74d4d7d614fee268b7b4c63c3",
-			"V": {
-	"Input": {},
-	"dict": {
-		"Key": {
-			"objectHolder": null,
-			"refHolder": null
-		},
-		"Key*": {
-			"objectHolder": null,
-			"refHolder": null
-		}
-	},
-	"Actor": "3bf95ea74d4d7d614fee268b7b4c63c3",
-	"Parent": "3bf95ea74d4d7d614fee268b7b4c63c3",
-	"OrderInParent": 1
 }
 		},
 		{
@@ -990,10 +974,42 @@
 			"TypeName": "Game.Test",
 			"ParentID": "bc98485249ce15c48c0e009c77059f8e",
 			"V": {
+	"Effect": {
+		"objectHolder": null,
+		"refHolder": "aa34f34e4225d115560f4eaafa1ce0ce"
+	},
 	"Input": {},
+	"Ground": {
+		"objectHolder": null,
+		"refHolder": null
+	},
 	"Actor": "bc98485249ce15c48c0e009c77059f8e",
 	"Parent": "bc98485249ce15c48c0e009c77059f8e",
 	"OrderInParent": 0
+}
+		},
+		{
+			"ID": "aa34f34e4225d115560f4eaafa1ce0ce",
+			"TypeName": "Game.TailEffect",
+			"ParentID": "bc98485249ce15c48c0e009c77059f8e",
+			"V": {
+	"Hello": {
+		"$type": "Game.Observable`1[[System.Int32, System.Private.CoreLib]], Game.CSharp",
+		"Value": 223
+	},
+	"Actor": "bc98485249ce15c48c0e009c77059f8e",
+	"Parent": "bc98485249ce15c48c0e009c77059f8e",
+	"OrderInParent": 1
+}
+		},
+		{
+			"ID": "562507bd432053c265f77a852a34845d",
+			"TypeName": "Game.GroundCubeDetector",
+			"ParentID": "bc98485249ce15c48c0e009c77059f8e",
+			"V": {
+	"Actor": "bc98485249ce15c48c0e009c77059f8e",
+	"Parent": "bc98485249ce15c48c0e009c77059f8e",
+	"OrderInParent": 2
 }
 		}
 	]

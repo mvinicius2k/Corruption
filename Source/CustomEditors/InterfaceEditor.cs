@@ -51,7 +51,7 @@ namespace CustomEditors
                             mutable.SetScriptAsNull();
 
 
-                        mutable.TrySetValue((IEffect)custom.CustomControl.Value);
+                        mutable.TrySetValue(custom.CustomControl.Value);
                         SetValue(mutable);
                         RebuildLayoutOnRefresh();
                     };

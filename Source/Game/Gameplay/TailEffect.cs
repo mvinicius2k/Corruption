@@ -10,10 +10,10 @@ namespace Game
     public class TailEffect : Script, IEffect
     {
         public Trap Origin;
-        public int Hello;
+        public IObservable<int> Hello = new Observable<int>();
         public string Name;
         public float Duration => 10;
-
+        //
         string IEffect.Name => this.Name;
 
         public void End(EntityDefense defense)

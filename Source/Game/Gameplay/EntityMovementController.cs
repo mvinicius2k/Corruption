@@ -43,12 +43,16 @@ namespace Game
 
             if (Input.GetActionState(Values.InputJump) == InputActionState.Press)
             {
-                EntityMovement.Jump();
+                EntityMovement.TryJump();
             }
             else if (Input.GetActionState(Values.InputJump) == InputActionState.Pressing)
             {
                 EntityMovement.AddImpulseInAir();
 
+            }
+            else if(Input.GetActionState(Values.InputJump) == InputActionState.Release)
+            {
+                EntityMovement.ReleaseJump();
             }
         }
     }
