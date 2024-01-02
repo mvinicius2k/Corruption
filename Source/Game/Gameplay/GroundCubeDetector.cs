@@ -20,9 +20,14 @@ public class GroundCubeDetector : Script, IGroundDetector
 
 
     [ShowInEditor, ReadOnly]
-    private IObservable<bool> sliding = new Observable<bool>(),
-                              grounded = new Observable<bool>();
+    private Observable<bool> sliding = new (),
+                              grounded = new ();
+    [ShowInEditor, ReadOnly]
+    private Observable<Collider> currentGround = new();
 
+
+
+    public IObservable<Collider> CurrentGround => currentGround;
     public IObservable<bool> Grounded => grounded;
 
     public IObservable<bool> Sliding => sliding;
@@ -31,12 +36,12 @@ public class GroundCubeDetector : Script, IGroundDetector
     {
         if (jumpingValue)
         {
-            Debug.Log("Entrando em pulo");
+            //Debug.Log("Entrando em pulo");
             grounded.Value = false;
         }
         else
         {
-            Debug.Log("Saindo do pulo");
+            //Debug.Log("Saindo do pulo");
         }
     }
 
@@ -49,13 +54,13 @@ public class GroundCubeDetector : Script, IGroundDetector
         EntityMovement.Jumping.OnChange -= OnEntityJumping;
     }
 
-    public override void OnFixedUpdate()
+    public override void OnUpdate()
     {
         if (Physics.BoxCast(Actor.Position, HalfExtends, Transform.Down, out var hit, Actor.Orientation, Distance, ((uint)LayerEnum.World)))
         {
 
             grounded.Value = true;
-
+            currentGround.Value = (Collider)hit.Collider;
             //if(Vector3.Angle(hit.Normal, Vector3.Up) > 90f - maxSlopeAngle)
             //{
             //    Sliding = true;
@@ -66,7 +71,10 @@ public class GroundCubeDetector : Script, IGroundDetector
             //}
         }
         else
+        {
             grounded.Value = false;
+            currentGround.Value = null;
+        }
     }
 
 

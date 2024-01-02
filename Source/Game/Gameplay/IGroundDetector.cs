@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FlaxEngine;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,9 @@ namespace Game;
     {
         public IObservable<bool> Grounded { get; }
         public IObservable<bool> Sliding { get; }
+        
+        
+        public IObservable<Collider> CurrentGround { get; }
 
     }
 

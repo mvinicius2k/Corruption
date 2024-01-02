@@ -23,9 +23,12 @@ public struct FunctionNode<T> : IComparable<FunctionNode<T>>
 /// </summary>
 public class ComposeValue<T> where T : struct
 {
+    [ShowInEditor, ReadOnly]
     private T baseValue;
+    [ShowInEditor, ReadOnly]
     private T value;
 
+    [HideInEditor]
     public T BaseValue 
     {
         get => baseValue;

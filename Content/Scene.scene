@@ -154,10 +154,7 @@
 				}
 			},
 			"OverrideMass": true,
-			"Mass": 100.0,
-			"LinearDamping": 0.0,
-			"AngularDamping": 0.0,
-			"MaxAngularVelocity": 0.0
+			"AngularDamping": 0.0
 		},
 		{
 			"ID": "01daeee34f1314ba3c27c9a19533bdf2",
@@ -168,11 +165,14 @@
 		"BaseValue": 50000.0
 	},
 	"jumpForce": {
-		"BaseValue": 80000.0
+		"BaseValue": 1000.0
+	},
+	"groundDetector": {
+		"objectHolder": null,
+		"refHolder": "00c3e0cd492acf2e4e420886177169e2"
 	},
 	"RigidBody": "c32a84074f2926075db86e895491df60",
 	"JumpAirForceMultiplicator": 0.5,
-	"JumpAirDuration": 30000.0,
 	"Actor": "c32a84074f2926075db86e895491df60",
 	"Parent": "c32a84074f2926075db86e895491df60",
 	"OrderInParent": 0
@@ -252,15 +252,11 @@
 			"Material": "791a850e4beddfcf19e68d9158f94c4b"
 		},
 		{
-			"ID": "f2eb72ea49327f3150d3218574bf12b3",
-			"TypeName": "Game.Game.GotoRoot",
+			"ID": "b0c94792459e97566a773ba558f2d828",
+			"TypeName": "FlaxEngine.MissingScript",
 			"ParentID": "f05185004d85b1695fc5b1ae710ba373",
-			"V": {
-	"root": "c32a84074f2926075db86e895491df60",
-	"Actor": "f05185004d85b1695fc5b1ae710ba373",
-	"Parent": "f05185004d85b1695fc5b1ae710ba373",
-	"OrderInParent": 0
-}
+			"MissingTypeName": "Game.Game.GotoRoot",
+			"Data": "{\n\t\"ID\": \"f2eb72ea49327f3150d3218574bf12b3\",\n\t\"TypeName\": \"Game.Game.GotoRoot\",\n\t\"ParentID\": \"f05185004d85b1695fc5b1ae710ba373\",\n\t\"V\": {\n\t\t\"root\": \"c32a84074f2926075db86e895491df60\",\n\t\t\"Actor\": \"f05185004d85b1695fc5b1ae710ba373\",\n\t\t\"Parent\": \"f05185004d85b1695fc5b1ae710ba373\",\n\t\t\"OrderInParent\": 0\n\t}\n}"
 		},
 		{
 			"ID": "c89d7f7f41a236d09ab3a8a084cdc639",
@@ -490,6 +486,65 @@
 			"ContactOffset": 0.0
 		},
 		{
+			"ID": "7f3f255a4e07ed511d58e09d967b79fd",
+			"TypeName": "FlaxEngine.Spline",
+			"ParentID": "74a68a984824b4510d12589f199ad68f",
+			"Name": "Spline",
+			"Transform": {
+				"Translation": {
+					"X": 1189.745361328125,
+					"Y": 0.0,
+					"Z": -930.5675048828125
+				}
+			},
+			"Curve": {
+				"Keyframes": [
+					{
+						"Time": 0.0,
+						"Value": {},
+						"TangentIn": {
+							"Translation": {
+								"X": 0.0,
+								"Y": 0.0,
+								"Z": -100.0
+							}
+						},
+						"TangentOut": {
+							"Translation": {
+								"X": 0.0,
+								"Y": 0.0,
+								"Z": 100.0
+							}
+						}
+					},
+					{
+						"Time": 1.0,
+						"Value": {
+							"Translation": {
+								"X": 0.0,
+								"Y": 0.0,
+								"Z": 100.0
+							}
+						},
+						"TangentIn": {
+							"Translation": {
+								"X": 0.0,
+								"Y": 0.0,
+								"Z": -100.0
+							}
+						},
+						"TangentOut": {
+							"Translation": {
+								"X": 0.0,
+								"Y": 0.0,
+								"Z": 100.0
+							}
+						}
+					}
+				]
+			}
+		},
+		{
 			"ID": "5e1dea5c4b87b5a2da3df0868c831ed6",
 			"TypeName": "FlaxEngine.StaticModel",
 			"ParentID": "74a68a984824b4510d12589f199ad68f",
@@ -582,50 +637,6 @@
 				"AA": {},
 				"PostFxMaterials": {}
 			}
-		},
-		{
-			"ID": "6983887744dc7e994f664b9fea9e7dba",
-			"TypeName": "FlaxEngine.StaticModel",
-			"ParentID": "74a68a984824b4510d12589f199ad68f",
-			"Name": "Floor 5",
-			"Transform": {
-				"Translation": {
-					"X": 1141.4482421875,
-					"Y": 46.1156005859375,
-					"Z": -1220.50830078125
-				},
-				"Orientation": {
-					"X": 0.1773277372121811,
-					"Y": 0.33911874890327456,
-					"Z": 0.42810681462287905,
-					"W": 0.8187049627304077
-				},
-				"Scale": {
-					"X": 9.170000076293946,
-					"Y": 0.570000171661377,
-					"Z": 3.3299999237060549
-				}
-			},
-			"Layer": 2,
-			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
-			"Buffer": {
-				"Entries": [
-					{
-						"Material": "382f1ae946c519eff6e6f3a2965cf56b",
-						"ShadowsMode": 3,
-						"Visible": true,
-						"ReceiveDecals": true
-					}
-				]
-			}
-		},
-		{
-			"ID": "a5df03c3437b6de59aaddf8afc34a34e",
-			"TypeName": "FlaxEngine.BoxCollider",
-			"ParentID": "6983887744dc7e994f664b9fea9e7dba",
-			"Name": "BoxCollider Floor",
-			"Layer": 2,
-			"ContactOffset": 0.0
 		},
 		{
 			"ID": "2949aa3e440886a49f122e88517485df",
@@ -745,7 +756,6 @@
 			"TypeName": "Game.PathCamera",
 			"ParentID": "6e1f62df4a7b9089ffbafb9811e068e9",
 			"V": {
-	"SplinePath": "bc98485249ce15c48c0e009c77059f8e",
 	"Target": "c32a84074f2926075db86e895491df60",
 	"Enabled": false,
 	"Actor": "6e1f62df4a7b9089ffbafb9811e068e9",
@@ -761,40 +771,107 @@
 			"Name": "Camera"
 		},
 		{
-			"ID": "bc98485249ce15c48c0e009c77059f8e",
-			"TypeName": "FlaxEngine.Spline",
+			"ID": "70f40ee94390876f3ef576a92e90b0e0",
+			"TypeName": "FlaxEngine.EmptyActor",
 			"ParentID": "74a68a984824b4510d12589f199ad68f",
+			"Name": "Floor Slider",
+			"Transform": {
+				"Translation": {
+					"X": 1754.44677734375,
+					"Y": 75.25129699707031,
+					"Z": -944.08740234375
+				},
+				"Scale": {
+					"X": 1.7999999523162842,
+					"Y": 1.0,
+					"Z": 2.4699997901916506
+				}
+			}
+		},
+		{
+			"ID": "988299b54f04740bd532ba86d975151b",
+			"TypeName": "FlaxEngine.StaticModel",
+			"ParentID": "70f40ee94390876f3ef576a92e90b0e0",
+			"Name": "Floor 5",
+			"Transform": {
+				"Scale": {
+					"X": 4.210000991821289,
+					"Y": 0.2100001871585846,
+					"Z": 3.3299999237060549
+				}
+			},
+			"Layer": 2,
+			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "382f1ae946c519eff6e6f3a2965cf56b",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		},
+		{
+			"ID": "9699086d403813ee0313a48f8c63bf9e",
+			"TypeName": "Game.ScriptActivator",
+			"ParentID": "988299b54f04740bd532ba86d975151b",
+			"V": {
+	"collider": "acdf81834345556ffa0deabaea562a9a",
+	"target": "5fd570dd47c4597c9f487da6dcb5d5a8",
+	"filterMask": 2,
+	"WakeState": 1,
+	"Actor": "988299b54f04740bd532ba86d975151b",
+	"Parent": "988299b54f04740bd532ba86d975151b",
+	"OrderInParent": 0
+}
+		},
+		{
+			"ID": "5fd570dd47c4597c9f487da6dcb5d5a8",
+			"TypeName": "Game.PlatformOverSpline",
+			"ParentID": "988299b54f04740bd532ba86d975151b",
+			"V": {
+	"spline": "867ae37447e6fe2f9bb53eb3853ea98c",
+	"Speed": 0.1,
+	"lockSplineDirection": true,
+	"Actor": "988299b54f04740bd532ba86d975151b",
+	"Parent": "988299b54f04740bd532ba86d975151b",
+	"OrderInParent": 1
+}
+		},
+		{
+			"ID": "acdf81834345556ffa0deabaea562a9a",
+			"TypeName": "FlaxEngine.BoxCollider",
+			"ParentID": "988299b54f04740bd532ba86d975151b",
+			"Name": "PlatformCollider",
+			"Layer": 2,
+			"ContactOffset": 0.0
+		},
+		{
+			"ID": "867ae37447e6fe2f9bb53eb3853ea98c",
+			"TypeName": "FlaxEngine.Spline",
+			"ParentID": "70f40ee94390876f3ef576a92e90b0e0",
 			"Name": "Spline",
 			"Transform": {
 				"Translation": {
-					"X": -419.401123046875,
-					"Y": 435.145751953125,
-					"Z": -1131.6510009765626
+					"X": 268.9759826660156,
+					"Y": 0.0,
+					"Z": 0.0
 				}
 			},
+			"IsLoop": true,
 			"Curve": {
 				"Keyframes": [
 					{
 						"Time": 0.0,
-						"Value": {
-							"Translation": {
-								"X": 20.0,
-								"Y": 0.0,
-								"Z": 0.0
-							}
-						},
-						"TangentIn": {
-							"Translation": {
-								"X": -155.60964965820313,
-								"Y": 0.0,
-								"Z": 0.0
-							}
-						},
+						"Value": {},
+						"TangentIn": {},
 						"TangentOut": {
 							"Translation": {
-								"X": 155.60964965820313,
+								"X": 928.7979125976563,
 								"Y": 0.0,
-								"Z": 0.0
+								"Z": -114.58317565917969
 							}
 						}
 					},
@@ -802,23 +879,23 @@
 						"Time": 1.0,
 						"Value": {
 							"Translation": {
-								"X": 175.60964965820313,
+								"X": 928.7979125976563,
 								"Y": 0.0,
-								"Z": 0.0
+								"Z": -114.58317565917969
 							}
 						},
 						"TangentIn": {
 							"Translation": {
-								"X": -172.15940856933595,
+								"X": -928.7979125976563,
 								"Y": 0.0,
-								"Z": 0.0
+								"Z": 114.58317565917969
 							}
 						},
 						"TangentOut": {
 							"Translation": {
-								"X": 172.15940856933595,
-								"Y": 0.0,
-								"Z": 0.0
+								"X": 308.0,
+								"Y": 1.0,
+								"Z": 1.0
 							}
 						}
 					},
@@ -826,191 +903,28 @@
 						"Time": 2.0,
 						"Value": {
 							"Translation": {
-								"X": 364.31878662109377,
+								"X": 487.48077392578127,
 								"Y": 0.0,
-								"Z": 0.0
+								"Z": -439.42236328125
 							}
 						},
-						"TangentIn": {
-							"Translation": {
-								"X": -207.25363159179688,
-								"Y": 0.0,
-								"Z": 0.0
-							}
-						},
-						"TangentOut": {
-							"Translation": {
-								"X": 207.25363159179688,
-								"Y": 0.0,
-								"Z": 0.0
-							}
-						}
+						"TangentIn": {},
+						"TangentOut": {}
 					},
 					{
 						"Time": 3.0,
-						"Value": {
-							"Translation": {
-								"X": 590.1168823242188,
-								"Y": 0.0,
-								"Z": 0.0
-							}
-						},
-						"TangentIn": {
-							"Translation": {
-								"X": -279.7040710449219,
-								"Y": 0.0,
-								"Z": 0.0
-							}
-						},
+						"Value": {},
+						"TangentIn": {},
 						"TangentOut": {
 							"Translation": {
-								"X": 279.7040710449219,
+								"X": 928.7979125976563,
 								"Y": 0.0,
-								"Z": 0.0
-							}
-						}
-					},
-					{
-						"Time": 4.0,
-						"Value": {
-							"Translation": {
-								"X": 923.7269287109375,
-								"Y": 0.0,
-								"Z": 0.0
-							}
-						},
-						"TangentIn": {
-							"Translation": {
-								"X": -352.89617919921877,
-								"Y": 0.0,
-								"Z": 0.0
-							}
-						},
-						"TangentOut": {
-							"Translation": {
-								"X": 352.89617919921877,
-								"Y": 0.0,
-								"Z": 0.0
-							}
-						}
-					},
-					{
-						"Time": 5.0,
-						"Value": {
-							"Translation": {
-								"X": 1295.9093017578126,
-								"Y": 0.0,
-								"Z": 0.0
-							}
-						},
-						"TangentIn": {
-							"Translation": {
-								"X": -332.22686767578127,
-								"Y": 0.0,
-								"Z": 0.0
-							}
-						},
-						"TangentOut": {
-							"Translation": {
-								"X": 332.22686767578127,
-								"Y": 0.0,
-								"Z": 0.0
-							}
-						}
-					},
-					{
-						"Time": 6.0,
-						"Value": {
-							"Translation": {
-								"X": 1588.1806640625,
-								"Y": 0.0,
-								"Z": 0.0
-							}
-						},
-						"TangentIn": {
-							"Translation": {
-								"X": -333.2470703125,
-								"Y": 0.0,
-								"Z": 0.0
-							}
-						},
-						"TangentOut": {
-							"Translation": {
-								"X": 333.2470703125,
-								"Y": 0.0,
-								"Z": 0.0
-							}
-						}
-					},
-					{
-						"Time": 7.0,
-						"Value": {
-							"Translation": {
-								"X": 1962.4033203125,
-								"Y": 0.0,
-								"Z": 0.0
-							}
-						},
-						"TangentIn": {
-							"Translation": {
-								"X": -349.3907470703125,
-								"Y": 0.0,
-								"Z": -149.30230712890626
-							}
-						},
-						"TangentOut": {
-							"Translation": {
-								"X": 349.3907470703125,
-								"Y": 0.0,
-								"Z": 149.30230712890626
+								"Z": -114.58317565917969
 							}
 						}
 					}
 				]
 			}
-		},
-		{
-			"ID": "b7647baf4fcfed50d74cdc9f3b9730fc",
-			"TypeName": "Game.Test",
-			"ParentID": "bc98485249ce15c48c0e009c77059f8e",
-			"V": {
-	"Effect": {
-		"objectHolder": null,
-		"refHolder": "aa34f34e4225d115560f4eaafa1ce0ce"
-	},
-	"Input": {},
-	"Ground": {
-		"objectHolder": null,
-		"refHolder": null
-	},
-	"Actor": "bc98485249ce15c48c0e009c77059f8e",
-	"Parent": "bc98485249ce15c48c0e009c77059f8e",
-	"OrderInParent": 0
-}
-		},
-		{
-			"ID": "aa34f34e4225d115560f4eaafa1ce0ce",
-			"TypeName": "Game.TailEffect",
-			"ParentID": "bc98485249ce15c48c0e009c77059f8e",
-			"V": {
-	"Hello": {
-		"$type": "Game.Observable`1[[System.Int32, System.Private.CoreLib]], Game.CSharp",
-		"Value": 223
-	},
-	"Actor": "bc98485249ce15c48c0e009c77059f8e",
-	"Parent": "bc98485249ce15c48c0e009c77059f8e",
-	"OrderInParent": 1
-}
-		},
-		{
-			"ID": "562507bd432053c265f77a852a34845d",
-			"TypeName": "Game.GroundCubeDetector",
-			"ParentID": "bc98485249ce15c48c0e009c77059f8e",
-			"V": {
-	"Actor": "bc98485249ce15c48c0e009c77059f8e",
-	"Parent": "bc98485249ce15c48c0e009c77059f8e",
-	"OrderInParent": 2
-}
 		}
 	]
 }

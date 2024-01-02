@@ -1,0 +1,18 @@
+{
+	"ID": "c229c6104e6cf8a7e8e15aa0625b242b",
+	"TypeName": "FlaxEngine.PluginDescription",
+	"EngineBuild": 6187,
+	"Data": {
+	"Name": "Simple Unit Testing",
+	"Version": "1.2",
+	"Author": "Lukáš Jech",
+	"AuthorUrl": "https://lukas.jech.me",
+	"RepositoryUrl": "https://github.com/FlaxCommunityProjects/FlaxUnitTesting",
+	"Description": "Simple unit testing framework",
+	"Category": "Unit Testing",
+	"IsBeta": false,
+	"IsAlpha": false,
+	"SupportedPlatforms": [
+		1
+	]
+}

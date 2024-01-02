@@ -12,23 +12,6 @@ namespace Game
         public EntityMovement EntityMovement;
 
 
-        /// <inheritdoc/>
-        public override void OnStart()
-        {
-            // Here you can add code that needs to be called when script is created, just before the first game update
-        }
-        
-        /// <inheritdoc/>
-        public override void OnEnable()
-        {
-            // Here you can add code that needs to be called when script is enabled (eg. register for events)
-        }
-
-        /// <inheritdoc/>
-        public override void OnDisable()
-        {
-            // Here you can add code that needs to be called when script is disabled (eg. unregister from events)
-        }
 
         /// <inheritdoc/>
         public override void OnUpdate()
@@ -36,9 +19,12 @@ namespace Game
 
             //Direção de acordo com um objeto
             var right = Camera.MainCamera.Transform.Right;
-            var fowared = Vector3.ProjectOnPlane(Camera.MainCamera.Transform.Forward, Vector3.Up).Normalized;
+            var entityUp = EntityMovement.Transform.Up;
+            var fowared = Vector3.ProjectOnPlane(Camera.MainCamera.Transform.Forward, entityUp).Normalized;
             var xInput = Input.GetAxisRaw(Values.InputHorizontalAxis);
             var yInput = Input.GetAxisRaw(Values.InputVerticalAxis);
+            
+            
             EntityMovement.MoveVector.BaseValue = fowared * yInput + right * xInput;
 
             if (Input.GetActionState(Values.InputJump) == InputActionState.Press)

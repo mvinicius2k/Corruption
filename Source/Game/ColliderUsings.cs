@@ -5,12 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Game.Game
+namespace Game
 {
-    public class GotoRoot : Script
+    public class ColliderUsings : Script
     {
         [ShowInEditor, Serialize]
-        private Actor root;
-        public Actor Root => root;
+        private List<Script> acess = new();
+        public List<Script> Acess => acess;
+        
+
+        
     }
 }

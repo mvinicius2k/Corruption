@@ -24,7 +24,7 @@ namespace CustomEditors
         {
             mutable = (IMutableScript) Values[0];
             mutable?.Refresh();
-            Debug.Log("init");
+            //Debug.Log("init");
             var lb = layout.AddPropertyItem(mutable?.TypeImplementor?.Name ?? "Instance");
             var btn = layout.Button("Select Instance");
             lb.AddElement(btn);

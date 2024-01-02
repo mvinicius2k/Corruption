@@ -67,7 +67,7 @@ namespace Game
                     _effects.RemoveAt(i);
                 }
             }
-           
+           //
         }
     }
 }

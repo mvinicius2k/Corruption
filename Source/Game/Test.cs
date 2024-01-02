@@ -82,11 +82,3 @@ public class Test : Script
         // Here you can add code that needs to be called every frame
     }
 }
-
-public class Fast : IGroundDetector
-{
-    public string OPla;
-    public IObservable<bool> Grounded => throw new NotImplementedException();
-
-    public IObservable<bool> Sliding => throw new NotImplementedException();
-}

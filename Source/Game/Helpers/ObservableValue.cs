@@ -15,7 +15,7 @@ public interface IObservable<T>
     public T Value { get; set; }
 }
 
-public class Observable<T> : IObservable<T> where T : struct
+public class Observable<T> : IObservable<T>
 {
 
     private T value;
@@ -28,14 +28,21 @@ public class Observable<T> : IObservable<T> where T : struct
         get => value;
         set
         {
-            if (this.value.Equals(value))
+            if ((this.value is null && value is not null) || (this.value is not null && !this.value.Equals(value)))
             {
-                return;
+                //Debug.Log(".");
+                this.value = value;
+                OnChange?.Invoke(value);
             }
-            this.value = value;
-            OnChange?.Invoke(value);
+
 
         }
+    }
+
+    public Observable() { }
+    public Observable(T startWith)
+    {
+        value = startWith;
     }
 
     public event Action<T> OnChange;

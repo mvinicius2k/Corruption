@@ -17,11 +17,11 @@ namespace Game
       
         public void Attack(PhysicsColliderActor target)
         {
-            var actorRoot = target.GetScript<GotoRoot>();
+            var actorRoot = target.GetScript<ColliderUsings>();
             if (actorRoot == null)
                 return;
 
-            var defense = actorRoot.Root.GetScript<EntityDefense>();
+            var defense = (EntityDefense) actorRoot.Acess.Find(x => x is EntityDefense);
             
 
             if (defense != null)
