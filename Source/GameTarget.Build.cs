@@ -9,6 +9,7 @@ public class GameTarget : GameProjectTarget
 
         // Reference the modules for game
         
+        Modules.Add("EditorPlus");
         Modules.Add("Game");
         
     }

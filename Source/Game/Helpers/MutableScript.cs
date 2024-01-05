@@ -22,7 +22,7 @@ public interface IMutableScript
 }
 
 
-public struct MutableScript<T> : IMutableScript
+public class MutableScript<T> : IMutableScript
 {
     [EditorDisplay(name: "Value"), ShowInEditor, Serialize]
     private object objectHolder;

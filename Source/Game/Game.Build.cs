@@ -20,6 +20,8 @@ public class Game : GameModule
 
         options.ScriptingAPI.IgnoreMissingDocumentationWarnings = true;
 
+        options.PublicDependencies.Add(item: "EditorPlus");
+
         var dllsPath = Path.Combine(FolderPath, "..", "..", "Content", "DLLs");
 
         options.ScriptingAPI.FileReferences.Add(Path.Combine(dllsPath, "DStruct.dll"));

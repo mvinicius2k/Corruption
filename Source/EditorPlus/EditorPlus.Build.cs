@@ -1,8 +1,7 @@
 using Flax.Build;
 using Flax.Build.NativeCpp;
 
-
-public class CustomEditors : GameEditorModule
+public class EditorPlus : GameModule
 {
     /// <inheritdoc />
     public override void Init()
@@ -19,10 +18,7 @@ public class CustomEditors : GameEditorModule
         base.Setup(options);
 
         options.ScriptingAPI.IgnoreMissingDocumentationWarnings = true;
-        
-        options.PublicDependencies.Add(item: "Game");
-        options.PublicDependencies.Add(item: "EditorPlus");
-        
+
         // Here you can modify the build options for your game module
         // To reference another module use: options.PublicDependencies.Add("Audio");
         // To add C++ define use: options.PublicDefinitions.Add("COMPILE_WITH_FLAX");

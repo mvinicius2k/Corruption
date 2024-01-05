@@ -10,6 +10,7 @@ public class GameEditorTarget : GameProjectEditorTarget
         // Reference the modules for editor
 
 
+        Modules.Add("EditorPlus");
         Modules.Add("CustomEditors");
         Modules.Add("Game");
         //Modules.Add("Editors");

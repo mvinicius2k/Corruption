@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Game {
     [Serializable]
-    public class PipedFloat
+    public class PipedFloat 
     {
         
         private float baseValue;

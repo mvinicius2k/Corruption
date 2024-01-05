@@ -28,12 +28,6 @@
 }
 		},
 		{
-			"ID": "b99d779c4d7307b7c341bfb37bf8e1a2",
-			"TypeName": "FlaxEngine.MissingScript",
-			"ParentID": "74a68a984824b4510d12589f199ad68f",
-			"Data": "{\n\t\"ID\": \"a23ea1724687cb4bbdeb4c8ba5c16c1c\",\n\t\"PrefabID\": \"18285ba34c0ec4934165fe93ce815280\",\n\t\"PrefabObjectID\": \"1ee4219b416de8e57addcd8504b45423\",\n\t\"ParentID\": \"74a68a984824b4510d12589f199ad68f\",\n\t\"Transform\": {\n\t\t\"Translation\": {\n\t\t\t\"X\": 434.2215881347656,\n\t\t\t\"Y\": 62.35668182373047,\n\t\t\t\"Z\": -594.34423828125\n\t\t}\n\t},\n\t\"Buffer\": {\n\t\t\"Entries\": [\n\t\t\t{}\n\t\t]\n\t}\n}"
-		},
-		{
 			"ID": "28553d634087c67c711ebd96080482aa",
 			"TypeName": "FlaxEngine.EmptyActor",
 			"ParentID": "74a68a984824b4510d12589f199ad68f",
@@ -358,6 +352,21 @@
 			}
 		},
 		{
+			"ID": "e54fa8354bfa1f37f66e5c8c5052cc31",
+			"TypeName": "Game.Test",
+			"ParentID": "eef5c6b142781dc7deb9c3bfe5d71629",
+			"V": {
+	"Input": {},
+	"Better": {
+		"$type": "EditorPlus.FlaxObjectReference`2[[Game.IEffect, Game.CSharp],[Game.TailEffect, Game.CSharp]], EditorPlus.CSharp",
+		"instance": null
+	},
+	"Actor": "eef5c6b142781dc7deb9c3bfe5d71629",
+	"Parent": "eef5c6b142781dc7deb9c3bfe5d71629",
+	"OrderInParent": 0
+}
+		},
+		{
 			"ID": "849fb6724ed6ade2fc92ca90681ab1c6",
 			"TypeName": "FlaxEngine.BoxCollider",
 			"ParentID": "eef5c6b142781dc7deb9c3bfe5d71629",
@@ -581,6 +590,21 @@
 			}
 		},
 		{
+			"ID": "069934f745378e16f8f6a1bbf6971135",
+			"TypeName": "Game.Test",
+			"ParentID": "5e1dea5c4b87b5a2da3df0868c831ed6",
+			"V": {
+	"Input": {},
+	"Better": {
+		"$type": "EditorPlus.FlaxObjectReference`2[[Game.IEffect, Game.CSharp],[Game.TailEffect, Game.CSharp]], EditorPlus.CSharp",
+		"instance": null
+	},
+	"Actor": "5e1dea5c4b87b5a2da3df0868c831ed6",
+	"Parent": "5e1dea5c4b87b5a2da3df0868c831ed6",
+	"OrderInParent": 0
+}
+		},
+		{
 			"ID": "d0a54f41499fc604b94ad0bb166b73bb",
 			"TypeName": "FlaxEngine.BoxCollider",
 			"ParentID": "5e1dea5c4b87b5a2da3df0868c831ed6",
@@ -789,11 +813,31 @@
 			}
 		},
 		{
+			"ID": "dbd6d66841fe603653d2b9942729681f",
+			"TypeName": "Game.Test",
+			"ParentID": "70f40ee94390876f3ef576a92e90b0e0",
+			"V": {
+	"Input": {},
+	"Better": {
+		"$type": "EditorPlus.FlaxObjectReference`2[[Game.IEffect, Game.CSharp],[Game.TailEffect, Game.CSharp]], EditorPlus.CSharp",
+		"instance": null
+	},
+	"Actor": "70f40ee94390876f3ef576a92e90b0e0",
+	"Parent": "70f40ee94390876f3ef576a92e90b0e0",
+	"OrderInParent": 0
+}
+		},
+		{
 			"ID": "988299b54f04740bd532ba86d975151b",
 			"TypeName": "FlaxEngine.StaticModel",
 			"ParentID": "70f40ee94390876f3ef576a92e90b0e0",
 			"Name": "Floor 5",
 			"Transform": {
+				"Translation": {
+					"X": 268.9759826660156,
+					"Y": 0.0,
+					"Z": 0.0
+				},
 				"Scale": {
 					"X": 4.210000991821289,
 					"Y": 0.2100001871585846,
@@ -922,6 +966,83 @@
 								"Z": -114.58317565917969
 							}
 						}
+					}
+				]
+			}
+		},
+		{
+			"ID": "6f9e99fb497e89b54ce00da1e0719249",
+			"TypeName": "FlaxEngine.EmptyActor",
+			"ParentID": "74a68a984824b4510d12589f199ad68f",
+			"Name": "EmptyActor",
+			"Transform": {
+				"Translation": {
+					"X": 1594.7764892578126,
+					"Y": 75.0,
+					"Z": -2372.218994140625
+				}
+			}
+		},
+		{
+			"ID": "59951a4b486197d5a180d9a35962090c",
+			"TypeName": "Game.TailEffect",
+			"ParentID": "6f9e99fb497e89b54ce00da1e0719249",
+			"V": {
+	"Origin": "836fc3884bdfe9507b47dfa46df9f4f7",
+	"Hello": {
+		"$type": "Game.Observable`1[[System.Int32, System.Private.CoreLib]], Game.CSharp",
+		"Value": 100
+	},
+	"Name": "Tail",
+	"Actor": "6f9e99fb497e89b54ce00da1e0719249",
+	"Parent": "6f9e99fb497e89b54ce00da1e0719249",
+	"OrderInParent": 0
+}
+		},
+		{
+			"ID": "5e9ebcc348a0f9b9bfb3938cf7715685",
+			"TypeName": "Game.Test",
+			"ParentID": "6f9e99fb497e89b54ce00da1e0719249",
+			"V": {
+	"Input": {},
+	"Better": {
+		"$type": "EditorPlus.FlaxObjectReference`2[[Game.IEffect, Game.CSharp],[Game.TailEffect, Game.CSharp]], EditorPlus.CSharp",
+		"instance": "59951a4b486197d5a180d9a35962090c"
+	},
+	"Actor": "6f9e99fb497e89b54ce00da1e0719249",
+	"Parent": "6f9e99fb497e89b54ce00da1e0719249",
+	"OrderInParent": 1
+}
+		},
+		{
+			"ID": "1d58f82f4f003a2938652fb922793207",
+			"TypeName": "FlaxEngine.Cloth",
+			"ParentID": "6f9e99fb497e89b54ce00da1e0719249",
+			"Name": "Cloth",
+			"Mesh": {},
+			"Force": {},
+			"Collision": {},
+			"Simulation": {},
+			"Fabric": {
+				"Vertical": {},
+				"Horizontal": {},
+				"Bending": {},
+				"Shearing": {}
+			}
+		},
+		{
+			"ID": "ec52390e47a39100330415a68ba2f67e",
+			"TypeName": "FlaxEngine.StaticModel",
+			"ParentID": "1d58f82f4f003a2938652fb922793207",
+			"Name": "StaticModel",
+			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "00000000000000000000000000000000",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
 					}
 				]
 			}

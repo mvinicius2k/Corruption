@@ -14,7 +14,6 @@ namespace Game;
 /// </summary>
 public class CameraArm : Script, ICameraSlot
 {
-
     public Actor Target;
     
     public float Speed = 500f;
@@ -68,6 +67,7 @@ public class CameraArm : Script, ICameraSlot
             camera = new Camera();
             camera.Parent = this.Actor;
         }
+        
     }
 
     /// <inheritdoc/>

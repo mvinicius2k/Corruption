@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using EditorPlus;
 using FlaxEngine;
 using FlaxEngine.GUI;
 using Game;
@@ -17,11 +18,17 @@ namespace Game;
 
 public class Test : Script
 {
-    
+    public FlaxEngine.Object Object;
     public MutableScript<IEffect> Effect;
     public ComposeValue<Vector2> Input = new ComposeValue<Vector2> { BaseValue = Vector2.One };
     public MutableScript<IGroundDetector> Ground;
     public Dictionary<string, MutableScript<IEffect>> dict;
+
+    //public InterfaceReference<IEffect> OtherEffect;
+
+
+    public IInterfaceReference<IEffect> Better;
+
     public override void OnStart()
     {
 
@@ -36,29 +43,41 @@ public class Test : Script
             Function = (input) => input + Vector2.One
         });
 
-
+        
 
     }
     //
 
-    [EditorAction]
+    [ShowInEditor]
     public void Preview()
     {
         Debug.Log(Input.Value);
     }
 
 
-    [EditorAction]
-    public void View()
-    {
+    //[EditorAction]
+    //public void ViewInterface()
+    //{
+    //    if (OtherEffect == null)
+    //        Debug.Log("Não inicializado");
+    //    else if (OtherEffect.Instance != null)
+    //    {
+    //        Debug.Log("Tipo: " + OtherEffect.Instance.ToString() + " " + OtherEffect.Instance.Name);
+    //    }
 
-        var msg = "null";
-        if (Effect.Value != null)
-        {
-            msg = Effect.Value.ToString() + " " + Effect.Value.Name;
-        }
-        Debug.Log("Tipo: " + msg);
-    }
+
+    //}
+    //[EditorAction]
+    //public void View()
+    //{
+
+    //    var msg = "null";
+    //    if (Effect.Instance != null)
+    //    {
+    //        msg = Effect.Instance.ToString() + " " + Effect.Instance.Name;
+    //    }
+    //    Debug.Log("Tipo: " + msg);
+    //}
     public void Lo(Collision c)
     {
         Debug.Log("Colidiu com " + c.OtherActor);
@@ -82,3 +101,7 @@ public class Test : Script
         // Here you can add code that needs to be called every frame
     }
 }
+
+
+
+

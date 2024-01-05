@@ -1,5 +1,12 @@
 ﻿{
   "profiles": {
+    "EditorPlus": {
+      "commandName": "Executable",
+      "workingDirectory": "C:/Users/marco/Desktop/Code/Corruption",
+      "executablePath": "E:/Flax/Flax_1.7/Binaries/Editor/Win64/Development/FlaxEditor.exe",
+      "commandLineArgs": "-project \"C:/Users/marco/Desktop/Code/Corruption\"",
+      "nativeDebugging": false
+    },
     "Game": {
       "commandName": "Executable",
       "workingDirectory": "C:/Users/marco/Desktop/Code/Corruption",
