@@ -20,10 +20,10 @@ public class Test : Script
 {
     
     public ComposeValue<Vector2> Input = new ComposeValue<Vector2> { BaseValue = Vector2.One };
+    public IBrush Brushs;
 
 
-
-    public IImplementation<IEffect> Effect;
+    public IImplementation<IEffect> Effect2;
 
     public override void OnStart()
     {

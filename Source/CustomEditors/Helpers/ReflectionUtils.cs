@@ -21,7 +21,7 @@ public static class ReflectionUtils
         var allTypes = assembly.SelectMany(assembly => assembly.GetTypes());
 
         var implementors = allTypes
-        .Where(type => typeInterface.IsAssignableFrom(type) && !type.IsInterface);
+        .Where(type => typeInterface.IsAssignableFrom(type) && !type.IsInterface && !type.IsAbstract);
 
 
         return implementors;

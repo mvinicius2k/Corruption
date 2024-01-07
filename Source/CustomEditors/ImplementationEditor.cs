@@ -3,108 +3,54 @@ using FlaxEditor.CustomEditors;
 using FlaxEditor.CustomEditors.Editors;
 using FlaxEngine;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace CustomEditors;
 
 
 [CustomEditor(typeof(IImplementation<>)), DefaultEditor]
-public class ImplementationEditor : GenericEditor
+public class ImplementationEditor : ObjectSwitcherEditor
 {
-    /// <summary>
-    /// Implementation choosed to draw members
-    /// </summary>
-    private Type currentChoosedType;
-
-    /// <summary>
-    /// Interface to search implementations
-    /// </summary>
-    private Type genericArgument;
-
-
-    private ImplementationOption[] allImplementations;
-
-    public override void Initialize(LayoutElementsContainer layout)
+    
+    protected override OptionType[] Options
     {
-        genericArgument = Values.Type.Type.GenericTypeArguments[0];
+        get
+        {
+            //The interface
+            var genericArgument = Values.Type.Type.GenericTypeArguments[0];
 
-        
-        allImplementations = ReflectionUtils.GetTypesImplementations(genericArgument)
-            .Select(t => new ImplementationOption
+            //All type that implements the interface
+            var allImplementations = ReflectionUtils.GetTypesImplementations(genericArgument).ToArray();
+
+            //Creating options
+            var allOptions = new OptionType[allImplementations.Length + 1];
+            allOptions[0] = new OptionType("null", null); //Null option
+
+            //All concrete type options
+            for (int i = 1; i < allOptions.Length; i++)
             {
-                DisplayName = $"{t.Name} ({t.FullName})",
-                Type = t
-            })
-            .ToArray();
+                var implementation = allImplementations[i - 1];
 
-        //Drawing options
-        var cbImplementation = layout.ComboBox("Implementation");
-        var cbOptions = allImplementations.Select(opt => opt.DisplayName);
-        cbImplementation.ComboBox.AddItems(cbOptions);
-        cbImplementation.ComboBox.SelectedIndexChanged += OnSelectImplementation;
+                Type typeContainer;
+                if (CheckIfIsFlax(implementation)) //Holds flax objects
+                    typeContainer = typeof(FlaxObjectImplementation<,>).MakeGenericType(genericArgument, implementation);
+                else //Holds common objects
+                    typeContainer = typeof(ObjectImplementation<,>).MakeGenericType(genericArgument, implementation);
 
-        //No instance... exiting
-        if (Values[0] == null)
-            return;
+                
+                allOptions[i] = new OptionType($"{implementation.Name} ({implementation.Namespace})", typeContainer);
+            }
 
-        //Has instance, loading back choosed type
-        var implementationType = Values[0].GetType();
-        currentChoosedType = (Type)implementationType.GetProperty(nameof(IImplementation<object>.ChoosedType)).GetValue(Values[0]);
-        cbImplementation.ComboBox.SelectedIndex = Array.FindIndex(allImplementations, opt => opt.Type == currentChoosedType);
-
-
-        base.Initialize(layout);
-    }
-
-    private void OnSelectImplementation(FlaxEditor.GUI.ComboBox obj)
-    {
-
-        var choosedType = allImplementations[obj.SelectedIndex].Type;
-
-        if (choosedType == currentChoosedType)
-            return;
-
-
-        //Initializing object to show if is not script
-        if (CheckIfIsFlax(choosedType))
-        {
-            var flaxReferenceType = typeof(FlaxObjectImplementation<,>).MakeGenericType(genericArgument, choosedType);
-            var flaxReference = Activator.CreateInstance(flaxReferenceType);
-            SetValue(flaxReference);
-        }
-        else
-        {
-            var objectReferenceType = typeof(ObjectImplementation<,>).MakeGenericType(genericArgument, choosedType);
-            var objectReference = Activator.CreateInstance(objectReferenceType);
-            SetValue(objectReference);
+            return allOptions;
 
         }
-
-        
-
-    }
-
-    protected override void OnUnDirty()
-    {
-
-        //For update UI when swap values is not between scripts
-        if (Values[0] != null)
-        {
-            if (ParentEditor != null)
-                ParentEditor.RebuildLayout();
-            else
-                RebuildLayout();
-
-
-        }
-        base.OnUnDirty();
     }
 
     /// <returns><see langword="true"/>if <paramref name="type"/> is flax object, otherwise <see langword="false"/></returns>
     public bool CheckIfIsFlax(Type type)
-    {
-        return typeof(FlaxEngine.Object).IsAssignableFrom(type);
-    }
+        => typeof(FlaxEngine.Object).IsAssignableFrom(type);
 
+    
 }
 

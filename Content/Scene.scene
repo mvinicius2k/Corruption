@@ -159,8 +159,9 @@
 	},
 	"groundDetector": {
 		"$type": "EditorPlus.FlaxObjectImplementation`2[[Game.IGroundDetector, Game.CSharp],[Game.GroundCubeDetector, Game.CSharp]], EditorPlus.CSharp",
-		"instance": null
-	}
+		"instance": "00c3e0cd492acf2e4e420886177169e2"
+	},
+	"RigidBody": "c32a84074f2926075db86e895491df60"
 }
 		},
 		{
@@ -938,11 +939,26 @@
 }
 		},
 		{
-			"ID": "defb041e40ed5bed4ea3febf544dd38f",
+			"ID": "f3e96f8d45977f1d2312bd921fca2031",
 			"TypeName": "Game.Test",
 			"ParentID": "6f9e99fb497e89b54ce00da1e0719249",
 			"V": {
 	"Input": {},
+	"Brush": {
+		"$type": "FlaxEngine.GUI.Sprite9SlicingBrush, FlaxEngine.CSharp",
+		"Sprite": {
+			"Atlas": null,
+			"Index": 0
+		},
+		"Filter": 1,
+		"BorderSize": 10.0,
+		"Border": {
+			"Left": 0.1,
+			"Right": 0.1,
+			"Top": 0.1,
+			"Bottom": 0.1
+		}
+	},
 	"Effect": {
 		"$type": "EditorPlus.ObjectImplementation`2[[Game.IEffect, Game.CSharp],[Game.SpeedEffect, Game.CSharp]], EditorPlus.CSharp",
 		"instance": {
