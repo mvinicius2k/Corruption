@@ -9,15 +9,19 @@ namespace CustomEditors;
 
 public static class ReflectionUtils
 {
+    /// <summary>
+    /// Gets all concrete types from all assemblies that implements <paramref name="typeInterface"/>
+    /// </summary>
+    /// <param name="typeInterface"></param>
+    /// <returns></returns>
     public static IEnumerable<Type> GetTypesImplementations(Type typeInterface)
     {
 
-        var assembly = Assembly.GetExecutingAssembly();
-        var allTypes = assembly.GetTypes();
+        var assembly = AppDomain.CurrentDomain.GetAssemblies();
+        var allTypes = assembly.SelectMany(assembly => assembly.GetTypes());
 
-        // Filtrar os tipos que implementam a interface desejada
         var implementors = allTypes
-        .Where(type => typeInterface.IsAssignableFrom(type) && !type.IsGenericType);
+        .Where(type => typeInterface.IsAssignableFrom(type) && !type.IsInterface);
 
 
         return implementors;

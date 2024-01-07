@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using EditorPlus;
 using FlaxEngine;
 using Game;
 
@@ -22,7 +22,7 @@ namespace Game
         [ShowInEditor, Serialize]
         private PipedFloat jumpForce = new PipedFloat { BaseValue = 50000f };
         [ShowInEditor, Serialize]
-        private MutableScript<IGroundDetector> groundDetector;
+        private IImplementation<IGroundDetector> groundDetector;
         public PipedFloat JumpForce => jumpForce;
         public PipedFloat Speed => speed;
 
@@ -47,7 +47,7 @@ namespace Game
         [ShowInEditor, ReadOnly]
         private ComposeValue<Vector3> moveVector = new();
         public ComposeValue<Vector3> MoveVector => moveVector;
-        public bool Grounded => groundDetector.Value.Grounded.Value;
+        public bool Grounded => groundDetector.Instance.Grounded.Value;
         [ShowInEditor, ReadOnly]
         private IPlatformSlider currentPlatformSlider;
         
@@ -106,7 +106,7 @@ namespace Game
         /// <inheritdoc/>
         public override void OnEnable()
         {
-            groundDetector.Value.CurrentGround.OnChange += OnGroundChange;
+            groundDetector.Instance.CurrentGround.OnChange += OnGroundChange;
         }
 
         private void OnGroundChange(Collider groundCollider)
@@ -138,7 +138,7 @@ namespace Game
         /// <inheritdoc/>
         public override void OnDisable()
         {
-            groundDetector.Value.CurrentGround.OnChange -= OnGroundChange;
+            groundDetector.Instance.CurrentGround.OnChange -= OnGroundChange;
         }
 
 
@@ -155,7 +155,7 @@ namespace Game
                 RigidBody.AngularVelocity = Vector3.Zero;
 
 
-            if (groundDetector.Value.CurrentGround is IPlatformSlider)
+            if (groundDetector.Instance.CurrentGround is IPlatformSlider)
             {
 
             }

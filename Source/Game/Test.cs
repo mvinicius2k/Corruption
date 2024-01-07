@@ -18,16 +18,12 @@ namespace Game;
 
 public class Test : Script
 {
-    public FlaxEngine.Object Object;
-    public MutableScript<IEffect> Effect;
+    
     public ComposeValue<Vector2> Input = new ComposeValue<Vector2> { BaseValue = Vector2.One };
-    public MutableScript<IGroundDetector> Ground;
-    public Dictionary<string, MutableScript<IEffect>> dict;
-
-    //public InterfaceReference<IEffect> OtherEffect;
 
 
-    public IInterfaceReference<IEffect> Better;
+
+    public IImplementation<IEffect> Effect;
 
     public override void OnStart()
     {

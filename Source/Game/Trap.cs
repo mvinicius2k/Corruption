@@ -1,6 +1,4 @@
 ﻿using FlaxEngine;
-using Game.Game;
-using Game.Game.Helpers;
 
 namespace Game
 {

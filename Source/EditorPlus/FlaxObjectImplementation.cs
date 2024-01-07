@@ -9,13 +9,14 @@ namespace EditorPlus;
 
 
 
-public interface IInterfaceReference<TInterface>
+public interface IImplementation<TInterface>
 {
     public TInterface Instance { get; }
     public Type ChoosedType { get; }
+    
 }
 
-public class FlaxObjectReference<TInterface, TImplementor> : IInterfaceReference<TInterface> where TImplementor : FlaxEngine.Object, TInterface
+public class FlaxObjectImplementation<TInterface, TImplementor> : IImplementation<TInterface> where TImplementor : FlaxEngine.Object, TInterface
 {
     [ShowInEditor, Serialize]
     private TImplementor instance;
@@ -24,7 +25,7 @@ public class FlaxObjectReference<TInterface, TImplementor> : IInterfaceReference
     public Type ChoosedType => typeof(TImplementor);
 }
 
-public class ObjectReference<TInterface, TImplementor> : IInterfaceReference<TInterface> where TImplementor : TInterface
+public class ObjectImplementation<TInterface, TImplementor> : IImplementation<TInterface> where TImplementor : TInterface
 {
     [ShowInEditor, Serialize]
     private TImplementor instance;

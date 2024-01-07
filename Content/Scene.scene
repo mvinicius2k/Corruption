@@ -1,7 +1,7 @@
 {
 	"ID": "74a68a984824b4510d12589f199ad68f",
 	"TypeName": "FlaxEngine.SceneAsset",
-	"EngineBuild": 6406,
+	"EngineBuild": 6407,
 	"Data": [
 		{
 			"ID": "74a68a984824b4510d12589f199ad68f",
@@ -21,11 +21,7 @@
 			"ID": "6ff0581d474c84230b3d0fa9f17e0972",
 			"TypeName": "ExitOnEsc",
 			"ParentID": "74a68a984824b4510d12589f199ad68f",
-			"V": {
-	"Actor": "74a68a984824b4510d12589f199ad68f",
-	"Parent": "74a68a984824b4510d12589f199ad68f",
-	"OrderInParent": 0
-}
+			"V": {}
 		},
 		{
 			"ID": "28553d634087c67c711ebd96080482aa",
@@ -162,35 +158,23 @@
 		"BaseValue": 1000.0
 	},
 	"groundDetector": {
-		"objectHolder": null,
-		"refHolder": "00c3e0cd492acf2e4e420886177169e2"
-	},
-	"RigidBody": "c32a84074f2926075db86e895491df60",
-	"JumpAirForceMultiplicator": 0.5,
-	"Actor": "c32a84074f2926075db86e895491df60",
-	"Parent": "c32a84074f2926075db86e895491df60",
-	"OrderInParent": 0
+		"$type": "EditorPlus.FlaxObjectImplementation`2[[Game.IGroundDetector, Game.CSharp],[Game.GroundCubeDetector, Game.CSharp]], EditorPlus.CSharp",
+		"instance": null
+	}
 }
 		},
 		{
 			"ID": "fc6aed344e80d8e8c47c4f99005f4197",
 			"TypeName": "Game.RelativeFront",
 			"ParentID": "c32a84074f2926075db86e895491df60",
-			"V": {
-	"Actor": "c32a84074f2926075db86e895491df60",
-	"Parent": "c32a84074f2926075db86e895491df60",
-	"OrderInParent": 1
-}
+			"V": {}
 		},
 		{
 			"ID": "65199a4046389a653e28be9d65c25c8c",
 			"TypeName": "Game.EntityDefense",
 			"ParentID": "c32a84074f2926075db86e895491df60",
 			"V": {
-	"Entity": "da46753045c7ec0ea4f7dcb7c990d365",
-	"Actor": "c32a84074f2926075db86e895491df60",
-	"Parent": "c32a84074f2926075db86e895491df60",
-	"OrderInParent": 2
+	"Entity": "da46753045c7ec0ea4f7dcb7c990d365"
 }
 		},
 		{
@@ -198,10 +182,7 @@
 			"TypeName": "Game.Entity",
 			"ParentID": "c32a84074f2926075db86e895491df60",
 			"V": {
-	"EntityMovement": "01daeee34f1314ba3c27c9a19533bdf2",
-	"Actor": "c32a84074f2926075db86e895491df60",
-	"Parent": "c32a84074f2926075db86e895491df60",
-	"OrderInParent": 3
+	"EntityMovement": "01daeee34f1314ba3c27c9a19533bdf2"
 }
 		},
 		{
@@ -214,10 +195,7 @@
 	"Speed": {
 		"Value": 100000.0,
 		"Composition": 1
-	},
-	"Actor": "c32a84074f2926075db86e895491df60",
-	"Parent": "c32a84074f2926075db86e895491df60",
-	"OrderInParent": 4
+	}
 }
 		},
 		{
@@ -231,10 +209,7 @@
 		"Z": 50.0
 	},
 	"EntityMovement": "01daeee34f1314ba3c27c9a19533bdf2",
-	"Distance": 48.0,
-	"Actor": "c32a84074f2926075db86e895491df60",
-	"Parent": "c32a84074f2926075db86e895491df60",
-	"OrderInParent": 5
+	"Distance": 48.0
 }
 		},
 		{
@@ -304,10 +279,7 @@
 			"TypeName": "Game.EntityMovementController",
 			"ParentID": "c79ba2b64629f1a145239b8e497bf253",
 			"V": {
-	"EntityMovement": "01daeee34f1314ba3c27c9a19533bdf2",
-	"Actor": "c79ba2b64629f1a145239b8e497bf253",
-	"Parent": "c79ba2b64629f1a145239b8e497bf253",
-	"OrderInParent": 0
+	"EntityMovement": "01daeee34f1314ba3c27c9a19533bdf2"
 }
 		},
 		{
@@ -315,10 +287,7 @@
 			"TypeName": "Game.DashController",
 			"ParentID": "c79ba2b64629f1a145239b8e497bf253",
 			"V": {
-	"Dash": "7e93a642483554d20ac9d0aaed811418",
-	"Actor": "c79ba2b64629f1a145239b8e497bf253",
-	"Parent": "c79ba2b64629f1a145239b8e497bf253",
-	"OrderInParent": 1
+	"Dash": "7e93a642483554d20ac9d0aaed811418"
 }
 		},
 		{
@@ -356,14 +325,7 @@
 			"TypeName": "Game.Test",
 			"ParentID": "eef5c6b142781dc7deb9c3bfe5d71629",
 			"V": {
-	"Input": {},
-	"Better": {
-		"$type": "EditorPlus.FlaxObjectReference`2[[Game.IEffect, Game.CSharp],[Game.TailEffect, Game.CSharp]], EditorPlus.CSharp",
-		"instance": null
-	},
-	"Actor": "eef5c6b142781dc7deb9c3bfe5d71629",
-	"Parent": "eef5c6b142781dc7deb9c3bfe5d71629",
-	"OrderInParent": 0
+	"Input": {}
 }
 		},
 		{
@@ -594,14 +556,7 @@
 			"TypeName": "Game.Test",
 			"ParentID": "5e1dea5c4b87b5a2da3df0868c831ed6",
 			"V": {
-	"Input": {},
-	"Better": {
-		"$type": "EditorPlus.FlaxObjectReference`2[[Game.IEffect, Game.CSharp],[Game.TailEffect, Game.CSharp]], EditorPlus.CSharp",
-		"instance": null
-	},
-	"Actor": "5e1dea5c4b87b5a2da3df0868c831ed6",
-	"Parent": "5e1dea5c4b87b5a2da3df0868c831ed6",
-	"OrderInParent": 0
+	"Input": {}
 }
 		},
 		{
@@ -742,10 +697,7 @@
 			"TypeName": "Game.Trap",
 			"ParentID": "d9b33f224ee3d2497c1573b54c7c4ccd",
 			"V": {
-	"ColliderTrigger": "d9b33f224ee3d2497c1573b54c7c4ccd",
-	"Actor": "d9b33f224ee3d2497c1573b54c7c4ccd",
-	"Parent": "d9b33f224ee3d2497c1573b54c7c4ccd",
-	"OrderInParent": 0
+	"ColliderTrigger": "d9b33f224ee3d2497c1573b54c7c4ccd"
 }
 		},
 		{
@@ -769,10 +721,7 @@
 	"Target": "c32a84074f2926075db86e895491df60",
 	"Speed": 0.5,
 	"CameraRadius": 10.0,
-	"MaxAngle": 150.0,
-	"Actor": "6e1f62df4a7b9089ffbafb9811e068e9",
-	"Parent": "6e1f62df4a7b9089ffbafb9811e068e9",
-	"OrderInParent": 0
+	"MaxAngle": 150.0
 }
 		},
 		{
@@ -780,11 +729,7 @@
 			"TypeName": "Game.PathCamera",
 			"ParentID": "6e1f62df4a7b9089ffbafb9811e068e9",
 			"V": {
-	"Target": "c32a84074f2926075db86e895491df60",
-	"Enabled": false,
-	"Actor": "6e1f62df4a7b9089ffbafb9811e068e9",
-	"Parent": "6e1f62df4a7b9089ffbafb9811e068e9",
-	"OrderInParent": 1
+	"Target": "c32a84074f2926075db86e895491df60"
 },
 			"Enabled": false
 		},
@@ -811,21 +756,6 @@
 					"Z": 2.4699997901916506
 				}
 			}
-		},
-		{
-			"ID": "dbd6d66841fe603653d2b9942729681f",
-			"TypeName": "Game.Test",
-			"ParentID": "70f40ee94390876f3ef576a92e90b0e0",
-			"V": {
-	"Input": {},
-	"Better": {
-		"$type": "EditorPlus.FlaxObjectReference`2[[Game.IEffect, Game.CSharp],[Game.TailEffect, Game.CSharp]], EditorPlus.CSharp",
-		"instance": null
-	},
-	"Actor": "70f40ee94390876f3ef576a92e90b0e0",
-	"Parent": "70f40ee94390876f3ef576a92e90b0e0",
-	"OrderInParent": 0
-}
 		},
 		{
 			"ID": "988299b54f04740bd532ba86d975151b",
@@ -865,10 +795,7 @@
 	"collider": "acdf81834345556ffa0deabaea562a9a",
 	"target": "5fd570dd47c4597c9f487da6dcb5d5a8",
 	"filterMask": 2,
-	"WakeState": 1,
-	"Actor": "988299b54f04740bd532ba86d975151b",
-	"Parent": "988299b54f04740bd532ba86d975151b",
-	"OrderInParent": 0
+	"WakeState": 1
 }
 		},
 		{
@@ -877,11 +804,7 @@
 			"ParentID": "988299b54f04740bd532ba86d975151b",
 			"V": {
 	"spline": "867ae37447e6fe2f9bb53eb3853ea98c",
-	"Speed": 0.1,
-	"lockSplineDirection": true,
-	"Actor": "988299b54f04740bd532ba86d975151b",
-	"Parent": "988299b54f04740bd532ba86d975151b",
-	"OrderInParent": 1
+	"Speed": 1.0
 }
 		},
 		{
@@ -947,9 +870,27 @@
 						"Time": 2.0,
 						"Value": {
 							"Translation": {
-								"X": 487.48077392578127,
+								"X": 945.5396118164063,
 								"Y": 0.0,
-								"Z": -439.42236328125
+								"Z": 701.38671875
+							}
+						},
+						"TangentIn": {},
+						"TangentOut": {}
+					},
+					{
+						"Time": 2.5,
+						"Value": {
+							"Translation": {
+								"X": 356.3387145996094,
+								"Y": 0.0,
+								"Z": 1196.275146484375
+							},
+							"Orientation": {
+								"X": 0.5028501749038696,
+								"Y": 0.23615184426307679,
+								"Z": -0.04718571901321411,
+								"W": 0.8301490545272827
 							}
 						},
 						"TangentIn": {},
@@ -993,25 +934,23 @@
 		"$type": "Game.Observable`1[[System.Int32, System.Private.CoreLib]], Game.CSharp",
 		"Value": 100
 	},
-	"Name": "Tail",
-	"Actor": "6f9e99fb497e89b54ce00da1e0719249",
-	"Parent": "6f9e99fb497e89b54ce00da1e0719249",
-	"OrderInParent": 0
+	"Name": "Tail"
 }
 		},
 		{
-			"ID": "5e9ebcc348a0f9b9bfb3938cf7715685",
+			"ID": "defb041e40ed5bed4ea3febf544dd38f",
 			"TypeName": "Game.Test",
 			"ParentID": "6f9e99fb497e89b54ce00da1e0719249",
 			"V": {
 	"Input": {},
-	"Better": {
-		"$type": "EditorPlus.FlaxObjectReference`2[[Game.IEffect, Game.CSharp],[Game.TailEffect, Game.CSharp]], EditorPlus.CSharp",
-		"instance": "59951a4b486197d5a180d9a35962090c"
-	},
-	"Actor": "6f9e99fb497e89b54ce00da1e0719249",
-	"Parent": "6f9e99fb497e89b54ce00da1e0719249",
-	"OrderInParent": 1
+	"Effect": {
+		"$type": "EditorPlus.ObjectImplementation`2[[Game.IEffect, Game.CSharp],[Game.SpeedEffect, Game.CSharp]], EditorPlus.CSharp",
+		"instance": {
+			"Duration": 0.0,
+			"Name": null,
+			"Amount": 0.0
+		}
+	}
 }
 		},
 		{

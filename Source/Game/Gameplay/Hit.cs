@@ -1,4 +1,6 @@
 ﻿
+using EditorPlus;
+
 namespace Game
 {
     public struct Hit
@@ -7,6 +9,6 @@ namespace Game
         public float Force;
         public AttackKind Kind;
 
-        public MutableScript<IEffect> Effect;
+        public IImplementation<IEffect> Effect;
     }
 }

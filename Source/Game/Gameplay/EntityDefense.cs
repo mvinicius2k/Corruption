@@ -34,10 +34,10 @@ namespace Game
             Entity.CurrentLife -= hit.Damage;
 
 
-            if (hit.Effect.HasValue)
+            if (hit.Effect.Instance != null)
             {
-                _effects.Add(new EffectBind { Effect = hit.Effect.Value, Timer = hit.Effect.Value.Duration });
-                hit.Effect.Value.Start(this);
+                _effects.Add(new EffectBind { Effect = hit.Effect.Instance, Timer = hit.Effect.Instance.Duration });
+                hit.Effect.Instance.Start(this);
             }
 
         }
